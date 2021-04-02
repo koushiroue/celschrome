@@ -9,5 +9,5 @@ Heavily Customized Personal UserChrome CSS for Firefox 64+ Version.
 - ~~*RGB*~~ `deprecated since Firefox v69`
 
 ## To-do
-- [-] Update stuff around here.  
+- [ ] Update stuff around here.  
 - [x] Create this readme.
