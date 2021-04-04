@@ -1,0 +1,145 @@
+/* Sidebars */
+.sidebar-placesTree {
+  -moz-appearance: none;
+  border: 0;
+  margin: 0;
+  border-top: 1px solid rgb(75,75,75);
+}
+
+.sidebar-placesTreechildren::-moz-tree-cell(leaf) ,
+.sidebar-placesTreechildren::-moz-tree-image(leaf) {
+  cursor: pointer;
+}
+
+.sidebar-placesTreechildren::-moz-tree-cell-text(leaf, hover) {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.sidebar-placesTreechildren::-moz-tree-cell(separator) {
+  cursor: default;
+}
+
+/* Trees */
+treechildren::-moz-tree-image(title) {
+  list-style-image: url(chrome://browser/skin/places/places.svg);
+  -moz-image-region: rect(2px, 396px, 18px, 380px);
+  padding-right: 2px;
+  margin: 0px 2px;
+  width: 16px;
+  height: 16px;
+}
+
+treechildren::-moz-tree-image(title, livemarkItem) {
+  -moz-image-region: rect(2px, 258px, 18px, 242px);
+}
+
+treechildren::-moz-tree-image(title, livemarkItem, visited) {
+  -moz-image-region: rect(2px, 278px, 18px, 262px);
+}
+
+treechildren::-moz-tree-image(title, separator) {
+  list-style-image: none;
+  width: 0;
+  height: 0;
+}
+
+treechildren::-moz-tree-image(title, container) {
+  -moz-image-region: rect(2px, 198px, 18px, 182px);
+}
+
+treechildren::-moz-tree-image(title, open) {
+  -moz-image-region: rect(2px, 198px, 18px, 182px);
+}
+
+treechildren::-moz-tree-image(title, container, livemark) {
+  -moz-image-region: rect(2px, 238px, 18px, 222px);
+}
+
+treechildren::-moz-tree-image(container, OrganizerQuery_AllBookmarks) {
+  -moz-image-region: rect(2px, 118px, 18px, 102px);
+}
+
+treechildren::-moz-tree-image(container, OrganizerQuery_BookmarksToolbar) {
+  -moz-image-region: rect(2px, 138px, 18px, 122px);
+}
+
+treechildren::-moz-tree-image(container, OrganizerQuery_BookmarksMenu) {
+  -moz-image-region: rect(2px, 158px, 18px, 142px);
+}
+
+treechildren::-moz-tree-image(container, OrganizerQuery_UnfiledBookmarks) {
+  -moz-image-region: rect(2px, 178px, 18px, 162px);
+}
+
+/* query-nodes should be styled even if they're not expandable */
+treechildren::-moz-tree-image(title, query) {
+  -moz-image-region: rect(2px, 218px, 18px, 202px);
+}
+
+treechildren::-moz-tree-image(title, query, tagContainer),
+treechildren::-moz-tree-image(query, OrganizerQuery_Tags) {
+  -moz-image-region: rect(2px, 98px, 18px, 82px);
+}
+
+treechildren::-moz-tree-image(query, OrganizerQuery_Downloads) {
+  -moz-image-region: rect(2px, 78px, 18px, 62px);
+}
+
+/* calendar icon for folders grouping items by date */
+treechildren::-moz-tree-image(title, query, dayContainer) {
+  -moz-image-region: rect(2px, 58px, 18px, 42px);
+}
+
+treechildren::-moz-tree-image(title, query, hostContainer) {
+  -moz-image-region: rect(2px, 198px, 18px, 182px);
+}
+
+treechildren::-moz-tree-image(title, query, hostContainer, open) {
+  -moz-image-region: rect(2px, 198px, 18px, 182px);
+}
+
+treechildren::-moz-tree-image(title, query, OrganizerQuery_History) {
+  -moz-image-region: rect(2px, 38px, 18px, 22px);
+}
+
+/* We want some queries to look like ordinary folders. This must come
+   after the (title, query) selector, or it would get overridden. */
+treechildren::-moz-tree-image(title, query, folder) {
+  -moz-image-region: rect(2px, 198px, 18px, 182px);
+}
+
+treechildren::-moz-tree-image(title, query, folder, open) {
+  -moz-image-region: rect(2px, 198px, 18px, 182px);
+}
+
+treechildren::-moz-tree-image(cutting) {
+  opacity: 0.5;
+}
+
+treechildren::-moz-tree-cell-text(cutting) {
+  opacity: 0.7;
+}
+
+/*added by Louis*/
+treechildren::-moz-tree-row(selected, focus) {
+  background-color: rgb(110,110,110);
+  border: none;
+}
+treechildren::-moz-tree-cell-text(selected, focus) {
+  color: #fff;
+}
+
+/* Browser Sidebars */
+
+/* Default button vert. margins are 1px/2px, and this can cause misalignment */
+#viewButton {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+#viewButton > .button-box > .button-menu-dropmarker {
+  height: auto;
+  width: auto;
+  margin-inline-end: -3px;
+}

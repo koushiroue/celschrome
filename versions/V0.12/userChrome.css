@@ -1,0 +1,70 @@
+/*AGENT_SHEET*/
+/* Base Theme */
+@import url(./css/base.css);
+/* IMPORTING CELSBASE */
+@import url(./cel/celsbase.css);
+
+
+/* IMPORTING CELSCHROME */
+@import url(./cel/CelsChrome.css);
+
+
+/* Pop-ups, Context Menus, Dropdowns, etc */
+@import url(./css/context.css);
+/* IMPORTING CELSCONTEXT */
+@import url(./cel/celscontext.css);
+
+/* Base Tags Theme */
+@import url(./css/tags.css);
+/* IMPORTING CELSTAGS */
+@import url(./cel/celstags.css);
+
+/* Pages */
+@import url(./css/pagesChrome.css);
+/* IMPORTING CELSPAGESCHROME */
+@import url(./cel/celspageschrome.css);
+
+/* Colors */
+/* Dark */
+@import url(./css/colors/tags-dark.css);
+@import url(./css/colors/context-dark.css);
+@import url(./css/colors/base-dark.css);
+@import url(./css/colors/pagesChrome-dark.css);
+
+/* IMPORTING CELSCOLORS*/
+
+/* Dark */
+@import url(./cel/colors/celtags-dark.css);
+@import url(./cel/colors/celcontext-dark.css);
+@import url(./cel/colors/celbase-dark.css);
+@import url(./cel/colors/celpagesChrome-dark.css);
+
+
+/* Light *//*
+@import url(./css/colors/tags-light.css);
+@import url(./css/colors/context-light.css);
+@import url(./css/colors/base-light.css);
+@import url(./css/colors/pagesChrome-light.css);*/
+
+/* Load custom JS */
+.titlebar-spacer[type="pre-tabs"] {
+	-moz-binding: url("./userChrome.xml#execute_javascript_code");
+}
+
+:root {
+	--uwp-accent-color: -moz-win-accentcolor; /* Global Accent Color */
+}
+
+
+@-moz-document
+    url(chrome://browser/content/browser.xul)
+{
+    tab[pending], #alltabs-popup[pending]{
+		opacity: 0.6 !important;
+		transition: all 1s ease !important;
+}
+}
+/* Hide back-forward buttons */
+#forward-button, #back-button {
+	display: none !important;
+}

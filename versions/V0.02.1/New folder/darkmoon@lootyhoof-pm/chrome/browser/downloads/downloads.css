@@ -1,0 +1,348 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/*** Panel and outer controls ***/
+
+#downloadsPanel > .panel-arrowcontainer > .panel-arrowcontent {
+  padding: 0;
+}
+
+#downloadsPanel:not([hasdownloads]) > #downloadsListBox {
+  display: none;
+}
+
+#downloadsPanel[hasdownloads] > #emptyDownloads {
+  display: none;
+}
+
+#emptyDownloads {
+  padding: 10px 20px;
+  max-width: 40ch;
+}
+
+#downloadsFooter {
+  background: rgb(75,75,75);
+  border-top: 1px solid rgb(75,75,75);
+}
+
+#downloadsHistory {
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+#downloadsPanel[keyfocus] > #downloadsFooter > #downloadsHistory:focus {
+  outline: 1px rgb(75,75,75) dotted;
+  outline-offset: -1px;
+}
+
+#downloadsHistory > .button-box {
+  border: none;
+  margin: 1em;
+}
+
+/*** Downloads Summary and List items ***/
+
+#downloadsSummary,
+richlistitem[type="download"] {
+  height: 7em;
+  padding-inline-end: 0;
+  color: inherit;
+}
+
+#downloadsSummary {
+  padding: 8px 38px 8px 12px;
+  cursor: pointer;
+  -moz-user-focus: normal;
+}
+
+#downloadsPanel[keyfocus] > #downloadsFooter > #downloadsSummary:focus {
+  outline: 1px rgb(75,75,75) dotted;
+  outline-offset: -5px;
+}
+
+#downloadsSummary > .downloadTypeIcon {
+  list-style-image: url("chrome://browser/skin/downloads/download-summary.png");
+}
+
+#downloadsSummaryDescription {
+  color: -moz-nativehyperlinktext;
+}
+
+richlistitem[type="download"] {
+  margin: 0;
+  border-bottom: 1px solid rgb(75,75,75);
+  background: rgb(50,50,50);
+  padding: 8px;
+}
+
+richlistitem[type="download"]:first-child {
+  border-top: 1px solid transparent;
+}
+
+@media (-moz-windows-default-theme) {
+  richlistitem[type="download"]:last-child {
+    border-bottom: 1px solid transparent;
+  }
+}
+
+.downloadTypeIcon {
+  margin-inline-end: 8px;
+  /* Prevent flickering when changing states. */
+  height: 32px;
+  width: 32px;
+}
+
+.blockedIcon {
+  list-style-image: url("chrome://global/skin/icons/error-16.svg");
+}
+
+/* We hold .downloadTarget, .downloadDisplayName, .downloadProgress and 
+   .downloadDetails inside of a vbox with class .downloadContainer. 
+   We set the font-size of the entire container to 90% because:
+
+   1) This is the size that we want .downloadDetails to be
+   2) The container's width is set by localizers by &downloadDetails.width;,
+      which is a ch unit. Since this is the value that should control the
+      panel width, we apply it to the outer container to constrain
+      .downloadTarget/.downloadDisplayName and .downloadProgress.
+
+   Finally, since we want .downloadTarget/.downloadDisplayName's font-size
+   to be at 100% of the font-size of .downloadContainer's parent, 
+   we use calc to go from the smaller font-size back to the original font-size.
+ */
+#downloadsSummaryDetails,
+.downloadContainer {
+  font-size: 90%;
+}
+
+#downloadsSummaryDescription,
+.downloadTarget,
+.downloadDisplayName {
+  margin-bottom: 6px;
+  cursor: inherit;
+}
+
+.downloadTarget,
+.downloadDisplayName {
+  font-size: calc(100%/0.9);
+}
+
+#downloadsSummaryDetails,
+.downloadDetails {
+  opacity: 0.6;
+  cursor: inherit;
+}
+
+.downloadButton {
+  -moz-appearance: none;
+  min-width: 0;
+  min-height: 0;
+  margin: 3px;
+  border: none;
+  background: transparent;
+  padding: 5px;
+}
+
+.downloadButton > .button-box {
+  border: 1px solid transparent;
+  padding: 0;
+}
+
+#downloadsPanel[keyfocus] .downloadButton:focus > .button-box {
+  border: 1px dotted rgb(75,75,75);
+}
+
+/*** Highlighted list items ***/
+
+#downloadsPanel:not([keyfocus]) > #downloadsListBox > richlistitem[type="download"][state="1"][exists]:hover {
+  color: #fff;
+  background-color: rgb(75,75,75);
+}
+
+/*** Button icons ***/
+
+.downloadButton.downloadCancel {
+  list-style-image: url("chrome://browser/skin/downloads/buttons.svg#cancel-normal");
+}
+.downloadButton.downloadCancel:hover {
+  list-style-image: url("chrome://browser/skin/downloads/buttons.svg#cancel");
+}
+.downloadButton.downloadCancel:active {
+  list-style-image: url("chrome://browser/skin/downloads/buttons.svg#cancel-active");
+}
+
+.downloadButton.downloadShow {
+  list-style-image: url("chrome://browser/skin/downloads/buttons.svg#show-normal");
+}
+.downloadButton.downloadShow:hover {
+  list-style-image: url("chrome://browser/skin/downloads/buttons.svg#show");
+}
+.downloadButton.downloadShow:active {
+  list-style-image: url("chrome://browser/skin/downloads/buttons.svg#show-active");
+}
+
+.downloadButton.downloadRetry {
+  list-style-image: url("chrome://browser/skin/downloads/buttons.svg#retry-normal");
+}
+.downloadButton.downloadRetry:hover {
+  list-style-image: url("chrome://browser/skin/downloads/buttons.svg#retry");
+}
+.downloadButton.downloadRetry:active {
+  list-style-image: url("chrome://browser/skin/downloads/buttons.svg#retry-active");
+}
+
+/*** Status and progress indicator ***/
+
+#downloads-indicator-anchor {
+  /* Makes the outermost stack element positioned, so that its contents are
+     rendered over the main browser window in the Z order.  This is required by
+     the animated event notification. */
+  position: relative;
+}
+
+/*** Main indicator icon ***/
+
+#downloads-indicator-icon {
+  background: -moz-image-rect(var(--toolbarbutton-image),
+                              0, 108, 18, 90) center no-repeat;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+toolbar:not([brighttext]) #downloads-indicator-icon {
+  background: -moz-image-rect(var(--toolbarbutton-inverted-image),
+                              0, 108, 18, 90) center no-repeat;
+}
+
+#downloads-indicator[attention] > #downloads-indicator-anchor > #downloads-indicator-icon {
+  background-image: url("chrome://browser/skin/toolbar/downloads.svg#highlight");
+}
+
+/* In the next few rules, we use :not([counter]) as a shortcut that is
+   equivalent to -moz-any([progress], [paused]). */
+
+#downloads-indicator:not([counter]) > #downloads-indicator-anchor > #downloads-indicator-progress-area > #downloads-indicator-counter {
+  background: -moz-image-rect(var(--toolbarbutton-image),
+                              0, 108, 18, 90) center no-repeat;
+  background-size: 12px;
+}
+
+#downloads-indicator:not([counter])[attention] > #downloads-indicator-anchor > #downloads-indicator-progress-area > #downloads-indicator-counter {
+  background-image: url("chrome://browser/skin/toolbar/downloads.svg#highlight");
+}
+
+/*** Download notifications ***/
+
+#downloads-indicator-notification {
+  opacity: 0;
+  background-size: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes downloadsIndicatorNotificationStartRight {
+  from { opacity: 0; transform: translate(-128px, 128px) scale(8); }
+  20%  { opacity: .85; animation-timing-function: ease-out; }
+  to   { opacity: 0; transform: translate(0) scale(1); }
+}
+
+@keyframes downloadsIndicatorNotificationStartLeft {
+  from { opacity: 0; transform: translate(128px, 128px) scale(8); }
+  20%  { opacity: .85; animation-timing-function: ease-out; }
+  to   { opacity: 0; transform: translate(0) scale(1); }
+}
+
+#downloads-indicator[notification="start"] > #downloads-indicator-anchor > #downloads-indicator-notification {
+  background-image: url("chrome://browser/skin/downloads/download-notification-start.png");
+  animation-name: downloadsIndicatorNotificationStartRight;
+  animation-duration: 1s;
+}
+
+#downloads-indicator[notification="start"]:-moz-locale-dir(rtl) > #downloads-indicator-anchor > #downloads-indicator-notification {
+  animation-name: downloadsIndicatorNotificationStartLeft;
+}
+
+@keyframes downloadsIndicatorNotificationFinish {
+  from { opacity: 0; transform: scale(1); }
+  20%  { opacity: .65; animation-timing-function: ease-in; }
+  to   { opacity: 0; transform: scale(8); }
+}
+
+#downloads-indicator[notification="finish"] > #downloads-indicator-anchor > #downloads-indicator-notification {
+  background-image: url("chrome://browser/skin/downloads/download-notification-finish.png");
+  animation-name: downloadsIndicatorNotificationFinish;
+  animation-duration: 1s;
+}
+
+/*** Progress bar and text ***/
+
+#downloads-indicator-counter {
+  height: 9px;
+  margin: -3px 0px 0px 0px;
+  color: white;
+  text-shadow: 0 0 1px rgba(0,0,0,.7),
+               0 1px 1.5px rgba(0,0,0,.5);
+  font-size: 9px;
+  line-height: 9px;
+  text-align: center;
+}
+
+toolbar:not([brighttext]) #downloads-indicator-counter {
+  color: hsl(0,0%,30%);
+  text-shadow: hsla(0,0%,100%,.5) 0 1px;
+}
+
+#downloads-indicator-progress {
+  width: 16px;
+  height: 5px;
+  min-width: 0;
+  min-height: 0;
+  margin-top: 1px;
+  margin-bottom: 2px;
+  border-radius: 2px;
+  box-shadow: 0 1px 0 hsla(0,0%,100%,.4);
+}
+
+#downloads-indicator-progress > .progress-bar {
+  -moz-appearance: none;
+  min-width: 0;
+  min-height: 0;
+  /* The background-clip: border-box; and background-image: none; are there to expand the background-color behind the border */
+  background-clip: padding-box, border-box;
+  background-color: rgb(90, 201, 66);
+  background-image: linear-gradient(transparent 1px, rgba(255, 255, 255, 0.4) 1px, rgba(255, 255, 255, 0.4) 2px, transparent 2px), none;
+  border: 1px solid;
+  border-color: rgba(0,43,86,.6) rgba(0,43,86,.4) rgba(0,43,86,.4);
+  border-radius: 2px 0 0 2px;
+}
+
+#downloads-indicator-progress > .progress-remainder {
+  -moz-appearance: none;
+  min-width: 0;
+  min-height: 0;
+  background-image: linear-gradient(#505050, #575757);
+  border: 1px solid;
+  border-color: hsla(0,0%,0%,.6) hsla(0,0%,0%,.4) hsla(0,0%,0%,.4);
+  border-inline-start: none;
+  border-radius: 0 2px 2px 0;
+}
+
+#downloads-indicator[paused] > #downloads-indicator-anchor > #downloads-indicator-progress-area > #downloads-indicator-progress > .progress-bar {
+  background-color: rgb(220, 230, 81);
+}
+
+#downloads-indicator[paused] > #downloads-indicator-anchor > #downloads-indicator-progress-area > #downloads-indicator-progress > .progress-remainder {
+  background-image: linear-gradient(#4b5000, #515700);
+}
+
+toolbar[mode="full"] > #downloads-indicator > .toolbarbutton-text {
+  margin: 0;
+  text-align: center;
+}
+
+#downloads-indicator-counter {
+  margin-bottom: -1px;
+}
+

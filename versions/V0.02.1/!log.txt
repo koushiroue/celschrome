@@ -1,0 +1,17 @@
+
+CELSCHROME v0.02
+
+16.06.2019
+-init log.
+-change timing delays between toolbars sliding during auto-hide.
+-create separeted css file for "ease" of use / editing.
+
+
+
+Source : 
+Shadowfox
+
+https://github.com/overdodactyl/ShadowFox/wiki/More-Tweaks#tabs-bar
+https://www.jeffersonscher.com/gm/url-bar-tweaks.html
+https://gist.github.com/mrkwatz/277fb19d210a7539304ca2388f24d8e3
+

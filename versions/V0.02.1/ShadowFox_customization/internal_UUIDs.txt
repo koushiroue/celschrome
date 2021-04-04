@@ -1,0 +1,17 @@
+formautofill@mozilla.org=ca526217-ddb9-41c0-b967-cfa511e2b699
+fxmonitor@mozilla.org=f5e0f5dc-b496-4a7f-a8f1-83ddb27af426
+screenshots@mozilla.org=2061a6fd-24f1-40ea-8a96-da0756aaa0c3
+webcompat-reporter@mozilla.org=3fda44a6-5a31-4ba3-b710-290d9bd993d8
+webcompat@mozilla.org=7a791bfb-c0f3-4ecf-a8fb-a13b0275f889
+addon@darkreader.org=2f6a19dc-dd8e-4017-8ed4-329718e317c1
+uBlock0@raymondhill.net=5fc353d9-8dcf-4d8b-ba53-1c9c2bdb9bfe
+jid1-BoFifL9Vbdl2zQ@jetpack=3982d84d-170d-4d2f-9e97-7da1d88c803f
+@testpilot-containers=ff38c4d6-6f6b-4b49-95ec-4509eff42402
+jid1-xUfzOsOFlzSOXg@jetpack=ec4f3a2a-8472-4b8f-b7f9-7370dcc59720
+kiwix-html5-listed@kiwix.org=27bb6286-06c1-49e2-9dd8-0f9c526f38f6
+brief@mozdev.org=c0a61ba1-ac02-4217-ad1e-41ca7b8d2c42
+enhancerforyoutube@maximerf.addons.mozilla.org=5eca394f-b16b-4217-a0f1-e61da250f477
+webext@tabmixplus.org=dae66bc3-9a34-4a67-84a7-ac6921d8f201
+{e4a8a97b-f2ed-450b-b12d-ee082ba24781}=aa77a563-2954-4bad-9fc1-ce9167a93738
+{46551EC9-40F0-4e47-8E18-8E5CF550CFB8}=d4d6ad6e-c709-4843-8f2f-57d6313872e6
+{c161a71c-fb42-4608-b001-5634b3f59a8b}=620e1f55-747c-48b2-863c-6fc1b1618fd5

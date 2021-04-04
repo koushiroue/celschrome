@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<window xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml"
+  id="cmtPrefs"
+  title="Color My Tabs preferences" 
+  style="min-width: 410px; min-height: 300px;">
+  
+  <script type="application/x-javascript">
+    <![CDATA[
+      Components.utils.import("resource://gre/modules/Services.jsm");
+      
+      function onWindowLoad() {
+        Services.obs.notifyObservers(window, "cmtPrefsOpen", null);
+      }
+      
+      function onResetSettings() {
+        Services.obs.notifyObservers(window, "cmtPrefsReset", null);
+      }
+      
+      function onApplySettings() {
+        Services.obs.notifyObservers(window, "cmtPrefsApply", null);
+      }
+      
+      function onCacheClear() {
+        Services.obs.notifyObservers(window, "cmtPrefsCacheClear", null);
+      }
+      
+      window.onload = onWindowLoad;
+    ]]>
+  </script>
+  
+  <tabbox id="tabbox" flex="1" style="padding: 5px">
+    <tabs>
+      <tab label="General"/>
+      <tab label="Detailed appearance"/>
+      <tab label="Advanced"/>
+    </tabs>
+    
+    <tabpanels flex="1">
+      <tabpanel>
+        <vbox flex="1">
+          <hbox flex="0" align="center">
+            <label value="Tab default color (HTML format)"/>
+            <spacer flex="1"/>
+            <textbox id="tabDefaultColor" style="text-align: center;" width="80"/>
+          </hbox>
+          
+          <hbox flex="0" align="center">
+            <label value="Tab fading color"/>
+            <spacer flex="1"/>
+            <textbox id="tabFadingColor" style="text-align: center;" width="80"/>
+          </hbox>
+          
+          <hbox flex="0" align="center">
+            <label value="Tab fading style"/>
+            <spacer flex="1"/>
+            <menulist id="tabFadingStyle">
+              <menupopup>
+                <menuitem value="1" label="at the top"/>
+                <menuitem value="2" label="at the bottom"/>
+                <menuitem value="3" label="on the left"/>
+                <menuitem value="4" label="on the right"/>
+                <menuitem value="5" label="disabled"/>
+              </menupopup>
+            </menulist>
+          </hbox>
+          
+          <spacer flex="0" height="15"/>
+          
+          <hbox flex="0" align="center">
+            <checkbox id="boldActiveTabTitle" label="Bold active tab title"/>
+          </hbox>
+          
+          <hbox flex="0" align="center">
+            <checkbox id="showTabTitleShadow" label="Show tab title shadow"/>
+          </hbox>
+          
+          <hbox flex="0" align="center">
+            <checkbox id="drawSeparationLine" label="Draw dark line at the bottom of inactive tabs"/>
+          </hbox>
+          
+          <spacer flex="0" height="15"/>
+          
+          <hbox flex="0" align="center">
+            <checkbox id="showIndicationBar" label="Display active tab colored indication bar"/>
+          </hbox>
+          
+          <hbox flex="0" align="center">
+            <label value="Active tab colored indication bar thickness"/>
+            <spacer flex="1"/>
+            <textbox id="indicationBarSize" type="number" width="55" min="1" max="10"/>
+          </hbox>
+        </vbox>
+      </tabpanel>
+      
+      <tabpanel>
+        <vbox flex="1">
+          <grid flex="1">
+            <columns>
+              <column flex="1"/>
+              <column flex="2"/>
+              <column flex="2"/>
+              <column flex="2"/>
+            </columns>
+            
+            <rows>
+              <row>
+                <label value=""/>
+                <description style="white-space: pre; text-align: center; min-width: 50px;">Active tab</description>
+                <description style="white-space: pre; text-align: center; min-width: 50px;">Inactive tab</description>
+                <description style="white-space: pre; text-align: center; min-width: 50px;">Hovered tab</description>
+              </row>
+              
+              <row>
+                <hbox flex="0" align="center">
+                  <label value="Fading range"/>
+                </hbox>
+                <textbox id="activeTabFadingRange" type="number" width="25" min="0" max="100"/>
+                <textbox id="inactiveTabFadingRange" type="number" width="25" min="0" max="100"/>
+                <textbox id="hoveredTabFadingRange" type="number" width="25" min="0" max="100"/>
+              </row>
+              
+              <row>
+                <hbox flex="0" align="center">
+                  <label value="Fading power"/>
+                </hbox>
+                <textbox id="activeTabFadingPower" type="number" width="25" min="0" max="100"/>
+                <textbox id="inactiveTabFadingPower" type="number" width="25" min="0" max="100"/>
+                <textbox id="hoveredTabFadingPower" type="number" width="25" min="0" max="100"/>
+              </row>
+              
+              <row>
+                <hbox flex="0" align="center">
+                  <label value="Color saturation"/>
+                </hbox>
+                <textbox id="activeTabSaturation" type="number" width="25" min="0" max="100"/>
+                <textbox id="inactiveTabSaturation" type="number" width="25" min="0" max="100"/>
+                <textbox id="hoveredTabSaturation" type="number" width="25" min="0" max="100"/>
+              </row>
+              
+              <row>
+                <hbox flex="0" align="center">
+                  <label value="Color brightness"/>
+                </hbox>
+                <textbox id="activeTabBrightness" type="number" width="25" min="0" max="100"/>
+                <textbox id="inactiveTabBrightness" type="number" width="25" min="0" max="100"/>
+                <textbox id="hoveredTabBrightness" type="number" width="25" min="0" max="100"/>
+              </row>
+              
+              <row>
+                <hbox flex="0" align="center">
+                  <label value="Tab opacity"/>
+                </hbox>
+                <textbox id="activeTabOpacity" type="number" width="25" min="0" max="100"/>
+                <textbox id="inactiveTabOpacity" type="number" width="25" min="0" max="100"/>
+                <textbox id="hoveredTabOpacity" type="number" width="25" min="0" max="100"/>
+              </row>
+              
+              <row>
+                <hbox flex="0" align="center">
+                  <label value="Title color"/>
+                </hbox>
+                <textbox id="activeTabFontColor" style="text-align: right;" width="25"/>
+                <textbox id="inactiveTabFontColor" style="text-align: right;" width="25"/>
+                <textbox id="hoveredTabFontColor" style="text-align: right;" width="25"/>
+              </row>
+              
+              <row>
+                <hbox flex="0" align="center">
+                  <label value="Title shadow color"/>
+                </hbox>
+                <textbox id="activeTabFontShadowColor" style="text-align: right;" width="25"/>
+                <textbox id="inactiveTabFontShadowColor" style="text-align: right;" width="25"/>
+                <textbox id="hoveredTabFontShadowColor" style="text-align: right;" width="25"/>
+              </row>
+            </rows>
+          </grid>
+        </vbox>
+      </tabpanel>
+      
+      <tabpanel>
+        <vbox flex="1">
+          <hbox flex="0" align="center">
+            <label value="Minimum alpha for capturable colors"/>
+            <spacer flex="1"/>
+            <textbox id="minColorAlpha" type="number" width="55" min="0" max="255"/>
+          </hbox>
+          
+          <hbox flex="0" align="center">
+            <label value="Too bright color RGB value set"/>
+            <spacer flex="1"/>
+            <textbox id="tooBrightRGBSet" type="number" width="55" min="0" max="255"/>
+          </hbox>
+          
+          <hbox flex="0" align="center">
+            <label value="Too dark color RGB value set"/>
+            <spacer flex="1"/>
+            <textbox id="tooDarkRGBSet" type="number" width="55" min="0" max="255"/>
+          </hbox>
+          
+          <hbox flex="0" align="center">
+            <label value="Exceptional maximum RGB peak to peak"/>
+            <spacer flex="1"/>
+            <textbox id="exceptionRGBPeakToPeak" type="number" width="55" min="0" max="255"/>
+          </hbox>
+          
+          <hbox flex="0" align="center">
+            <label value="Maximum difference between similar colors"/>
+            <spacer flex="1"/>
+            <textbox id="maxDiffBetweenSimilarColors" type="number" width="55" min="0" max="255"/>
+          </hbox>
+          
+          <spacer flex="0" height="15"/>
+          
+          <hbox flex="0" align="center">
+            <label value="Color brightness correction"/>
+            <spacer flex="1"/>
+            <menulist id="allowColorBrightnessFixes">
+              <menupopup>
+                <menuitem value="1" label="for all colors"/>
+                <menuitem value="2" label="only for default color"/>
+                <menuitem value="3" label="only for custom colors"/>
+                <menuitem value="4" label="disabled"/>
+              </menupopup>
+            </menulist>
+          </hbox>
+          
+          <spacer flex="0" height="15"/>
+          
+          <button label="Clear colors cache" oncommand="onCacheClear();" height="40"/>
+        </vbox>
+      </tabpanel>
+      
+    </tabpanels>
+  </tabbox>
+  
+  <hbox style="padding: 0px 0px 5px 0px">
+    <button label="Reset values to default" oncommand="onResetSettings();"/>
+    <spacer flex="1"/>
+    <button label="Apply changes" oncommand="onApplySettings();"/>
+    <button label="Close" onclick="window.close();"/>
+  </hbox>
+  
+</window>

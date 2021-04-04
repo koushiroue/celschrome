@@ -1,0 +1,12 @@
+/**/
+
+:root {
+	--uwp-context-background: rgba(0,0,0,0.75);
+	--uwp-context-border: white;
+	--uwp-context-separator: rgba(255,255,255,0.25);
+	--uwp-context-menuitem-hover: rgba(255,255,255,0.5);
+	--uwp-context-menuitem-active: black;
+	--uwp-context-menuitem-open: lightgray;
+	--uwp-context-tooltip: rgba(0,0,0,0.75);
+	--uwp-context-tooltip-border: none;
+}
