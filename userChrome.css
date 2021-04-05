@@ -1,0 +1,10 @@
+
+
+
+/*importing main frame of cel's chrome*/
+@import url(./celschrome/%_BASE_%.css);
+
+/*importing url bar tweak
+@import url(./celschrome/%_CONTEXT_%.css);*/
+
+@import url(./celschrome/%_COLORS_%.css);

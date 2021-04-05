@@ -1,0 +1,183 @@
+/*CELSCHROME
+
+
+Version History
+0.19
+-rename stuffs.
+
+0.18
+-added spacers on 1024px-mode
+*/
+
+/*TITLEBAR*/
+/* remove anti-clutter *
+.titlebar-button {
+	padding-left: 2px !important;
+	padding-right: 2px !important;
+	padding-top: 8px !important; 
+}
+
+
+/*NAVIGATION TOOLBAR*/
+/* Move hamburger menu to the left */
+#PanelUI-button, #customization-panel-container,
+#customization-panelWrapper .panel-arrow { 
+  -moz-box-ordinal-group: 0 !important; }
+
+/* Remove Page Actions Menu & Back/Forward Button */
+#pageActionButton, #forward-button,
+#back-button {display: none !important;}
+
+/* Hide buttons and Page Action Menu */
+:root:not([customizing]) #nav-bar toolbarbutton {
+	margin-left: -30px !important;
+	opacity: 0 !important;
+	pointer-events: none !important;
+	transition: all 500ms ease 0.1740s !important;
+}
+/* Show on hover or focus */
+:root:not([customizing]) :hover > #nav-bar toolbarbutton,
+:root:not([customizing]) #navigator-toolbox
+:focus-within #nav-bar toolbarbutton,
+:root:not([customizing]) :hover > #titlebar toolbarbutton {
+	margin-left: 0 !important;
+	opacity: 1 !important;
+	pointer-events: auto !important;
+	transition: all 100ms !important;
+}
+
+
+/*PERSONAL TOOLBAR*/ 
+
+/*removes anti-clutter on toolbar*/
+toolbarbutton.bookmark-item {
+	font-size: 14px !important;
+	height: 18px !important;
+    padding-right: 1px !important;
+	padding-left: 1px !important;
+}
+
+
+/*TABS TOOLBAR*/
+
+/*Removes anti-clutter  buttons*/
+#alltabs-button, .titlebar-spacer[type="pre-tabs"],
+.titlebar-spacer[type="post-tabs"]
+{display: none;}
+
+#tabbrowser-tabs tab[selected]{
+	font-size: 13px;
+	font-weight: bold;
+}
+#tabbrowser-tabs tab{font-size: 11px;}
+
+/*Show close button on hover*/
+.tab-close-button {
+    visibility: collapse !important;
+	opacity:0 !important;
+	margin-left: -20px !important;
+	transition: all 1s ease 0s !important;
+}
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+    visibility: visible !important;
+    display: block !important;
+	opacity: 1 !important;
+	margin-left: 0px !important;
+	transition: all 0.025s ease 0s !important;
+}
+.tab-close-button {
+-moz-box-ordinal-group: 1;
+    display: -moz-box !important;
+    position: relative;
+    margin-right: 0px !important;
+    z-index: -1;
+    visibility: hidden;
+}
+/* Reduce the margins within tabs */
+.tab-content:not([pinned]) {padding: 4 2px !important;}
+.tab-content {
+    height: 28px;
+    margin-top: 0px;
+    padding: 0px 4px 0px !important;
+}
+/* Narrow the gap between the favicon and the title */
+.tab-icon-image:not([pinned]) {margin-inline-end: 2px !important;}
+tab[selected=true]:not([pinned]) {min-width: 144px !important;}
+
+
+
+/* ONE LINER MOD */
+/* Move tabs 35% to right */
+#TabsToolbar {
+	margin-left: 50vw !important;
+	pointer-events: auto !important;
+	background: rgba(0, 0, 0, 1) !important;
+	transition: all 50ms !important;
+}
+
+/* Move navigation 65% to left and move to top line */
+#nav-bar {
+	margin-right: 50vw !important;
+	margin-top: -32px !important;
+	background: rgba(0, 0, 0, 1) !important;
+	background-blend-mode: hard-light;
+	pointer-events: auto !important;
+	transition: all 150ms ease-out !important;
+	z-index: 2;
+}
+
+/* COLOR MOD */
+#PersonalToolbar {
+    background-image: url(images/noise.png) !important;
+    background-color: rgba(0, 0, 0, 1) !important;
+    backdrop-filter: blur(32px) !important;
+}
+
+#statuspanel #statuspanel-label,
+statuspanel .statuspanel-label {
+  background-color: rgba(0, 0, 0, 0.75)!important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+
+@-moz-document url('chrome://global/content/alerts/alert.xhtml') {
+    #alertBox {
+        border-color: rgba(107,107,107,.3) !important;
+        background: /*rgba(33,33,33,.9)*/ url("chrome://global/skin/media/imagedoc-darknoise.png") !important;
+        color: rgba(215,215,215,.9) !important;
+        backdrop-filter: blur(32px) !important;
+    }
+    #alertSettings {
+        -moz-context-properties: fill, fill-opacity !important;
+        padding: 3px !important;
+        margin: 0px 2px -3px 0px !important;
+        color: inherit !important;
+        border-radius: 2px !important;
+        transform: scale(0.91, 0.91) !important;
+    }
+    #alertSettings:hover,
+    #alertSettings[open] {
+        background-color: rgba(215, 215, 215, 0.1) !important;
+    }
+}
+
+/* ADDING A RULE OF THE BROWSER WIDTH IS 1280PX OR LOWER*/
+@media only screen and (max-width: 1280px){
+	#nav-bar, #TabsToolbar {margin: 0px 0px 0px 0px !important;}
+	
+	/* re-add Page Actions Menu & Back/Forward Button*/
+	#pageActionButton, #forward-button, 
+	#back-button {display: initial !important;}
+  #alltabs-button, .titlebar-spacer[type="post-tabs"] {display : block;}
+	/* show buttons */
+	:root:not([customizing]) #nav-bar toolbarbutton {
+		margin-left: 0px !important;
+		opacity: 100 !important;
+	}
+	/*changing tabs size when the browser is smol*/
+	tab:not([pinned]) { min-width: 144px !important; }		
+	tab[selected=true]:not([pinned]) {min-width: 256px !important;}
+	
+}
+
