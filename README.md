@@ -17,7 +17,7 @@ Go to `about:config` in Firefox and do the following :
 - Set `layout.css.backdrop-filter.enabled` to `true`.  
 
 ## Installing
-Download `chrome.zip` from [latest release](github.com/koushiroue/celschrome/releases/latest) and extract it to your Firefox profile folder.
+Download `chrome.zip` from [latest release](https://github.com/koushiroue/celschrome/releases/latest) and extract it to your Firefox profile folder.
 Go to `about:profiles` to check the location of the folder.
 
 ## To-do
