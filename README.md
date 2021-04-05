@@ -13,8 +13,8 @@ What is [userchrome.css?](https://www.userchrome.org/)
 
 ## Prerequisite 
 Go to `about:config` in Firefox and do the following :  
-		- Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`. 
-		- Set `layout.css.backdrop-filter.enabled` to `true`. 
+		- Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.  
+		- Set `layout.css.backdrop-filter.enabled` to `true`.  
 
 ## Installing
 Download `chrome.zip` from [latest release](github.com\koushiroue\celschrome\release) and extract it to your Firefox profile folder.
