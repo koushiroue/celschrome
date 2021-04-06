@@ -123,7 +123,7 @@ tab[selected=true]:not([pinned]) {min-width: 144px !important;}
 /* Move navigation 65% to left and move to top line */
 #nav-bar {
 	margin-right: 50vw !important;
-	margin-top: -2.5vw !important;
+	margin-top: -32vw !important;
 	background: rgba(0, 0, 0, 1) !important;
 	background-blend-mode: hard-light;
 	pointer-events: auto !important;
