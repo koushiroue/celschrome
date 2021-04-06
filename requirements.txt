@@ -1,1 +1,2 @@
-layout.css.backdrop-filter.enabled=true
+- Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.  
+- Set `layout.css.backdrop-filter.enabled` to `true`.  
