@@ -12,9 +12,9 @@ This css is inspired from most userchrom.css tweaks repos, including the one-lin
 
 ### Navigation Tweaks 
 - Allows One-Liner Modification (Address Bar + Tab) when Browser window is over certain size.
-- Tab focus control with auto-hide close button.
+- Tab auto-size focus with auto-hide close button.
 - Address Bar auto-expand and auto-hide when hovered.
-- Reduce most* spaces in tabs for more compact  footprint. 
+- Reduce most* spaces in tabs, navigations and bookmark bar for more compact footprint. 
  
 ### Personal Bar Tweaks 
 - Transparent Background color in bookmark folder. 

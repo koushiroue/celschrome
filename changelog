@@ -1,0 +1,13 @@
+Version History
+
+0.19
+-rename stuffs.
+-better readme
+-one-liner now moves navbar using vw instead of -32px
+-also using 70em instead of 1280 / 1024px.
+-enable spacers on post-tabs in one-liner mod.
+-disable pre-tabs spacers completely.
+- re-adding compact min/max/close button with relative size instead of px.
+
+0.18
+-added spacers on 1024px-mode
