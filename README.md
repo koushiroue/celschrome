@@ -5,7 +5,10 @@ Heavily Customized Personal UserChrome CSS for Firefox 64+ Version.
 What is [userchrome.css?](https://www.userchrome.org/)
 
 ## Features
-This css is inspired from most userchrom.css tweaks repos, including the one-liner mod ,auto-hide close button and auto-hide navigation buttons.
+This css is inspired from most userchrome.css tweaks repos, including the one-liner mod ,auto-hide close button and auto-hide navigation buttons.
+- [SimplerentFox]
+(https://github.com/migueravila/SimplerentFox)
+
 ### Overall Tweaks
 - Colorless Theme. (uses the color from Windows Personalization Setting)
 - ~~*RGB*~~ `deprecated since Firefox v69`
@@ -23,11 +26,14 @@ This css is inspired from most userchrom.css tweaks repos, including the one-lin
 ## Prerequisite 
 Go to `about:config` in Firefox and do the following :  
 - Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.  
-- Set `layout.css.backdrop-filter.enabled` to `true`.  
+- (Optional) Set `layout.css.backdrop-filter.enabled` to `true`.  
 
 ## Installing
 Download `chrome.zip` from [latest release](https://github.com/koushiroue/celschrome/releases/latest) and extract it to your Firefox profile folder.
 Go to `about:profiles` to check the location of the folder.
+
+## Build 
+Use the `git clone` above.
 
 ## To-do
 - [x] Update stuff around here.  
