@@ -6,8 +6,8 @@ What is [userchrome.css?](https://www.userchrome.org/)
 
 ## Features
 This css is inspired from most userchrome.css tweaks repos, including the one-liner mod ,auto-hide close button and auto-hide navigation buttons.
-- [SimplerentFox]
-(https://github.com/migueravila/SimplerentFox)
+- [SimplerentFox](https://github.com/migueravila/SimplerentFox)  
+- [CustomCSSforFx](https://github.com/Aris-t2/CustomCSSforFx)  
 
 ### Overall Tweaks
 - Colorless Theme. (uses the color from Windows Personalization Setting)
@@ -31,9 +31,6 @@ Go to `about:config` in Firefox and do the following :
 ## Installing
 Download `chrome.zip` from [latest release](https://github.com/koushiroue/celschrome/releases/latest) and extract it to your Firefox profile folder.
 Go to `about:profiles` to check the location of the folder.
-
-## Build 
-Use the `git clone` above.
 
 ## To-do
 - [x] Update stuff around here.  
