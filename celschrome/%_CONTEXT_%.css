@@ -1,104 +1,78 @@
-/* 
-  Firefox 57-70 users: https://www.jeffersonscher.com/gm/url-bar-tweaks.html
-  You can copy/paste into a userChrome.css file, see https://www.userchrome.org/
-*/
-/* Remove " - Visit" or " - Search with" bar in the drop-down */
-  #PopupAutoCompleteRichResult richlistitem:first-of-type[type*="heuristic"],
-  #PopupAutoCompleteRichResult richlistitem:first-of-type[actiontype="searchengine"],
-  #PopupAutoCompleteRichResult richlistitem:first-of-type[actiontype="visiturl"],
-  #PopupAutoCompleteRichResult richlistitem:first-of-type[actiontype="keyword"] {
-    display:none !important;
-  }
-  /* Hide line for searching sld.tld below "Visit" Line */
-  #PopupAutoCompleteRichResult richlistitem:first-of-type[actiontype="visiturl"] +
-  richlistitem[actiontype="searchengine"] {
-    display:none !important;
-  }
-  #PopupAutoCompleteRichResult .autocomplete-richlistbox,
+/*** Megabar Styler General - version 2020-07-27 ***/
+
+
+/*** End of: Megabar Styler General ***/
+
+/*** Megabar Styler Two-Row Flex Layout - version 2020-06-03 ***/
+  /* !!! Requires variables from Megabar Styler General !!! */
+  /* Adjust heights for scrolling */
   #urlbarView-results, #urlbar-results {
+    max-height: calc(1.625 * (var(--mbarstyler-title-font-size) + var(--mbarstyler-url-font-size) + var(--mbarstyler-bottom-border-width)) * var(--mbarstyler-max-rows-without-scrolling)) !important;
+  }
+
+    /* Wrap the url (adapted from Fx75 narrow bar design) */
+  .urlbarView-row-inner {
+    flex-wrap: wrap !important;
     padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  /* EXCEPTION: Show "Search with" for keyworded search engines */
-  #PopupAutoCompleteRichResult richlistitem:first-of-type[actiontype="searchengine"][displayurl*=',"alias":'], 
-  #PopupAutoCompleteRichResult richlistitem:first-of-type[actiontype="searchengine"][url*=',"alias":']{
-    display:-moz-box !important;
+    padding-bottom: 2px !important;
   }
 
-/* Display drop-marker only when URL bar is hovered (Firefox default) */
-/* Set max-height for items visible without scrolling */
-  #PopupAutoCompleteRichResult .autocomplete-richlistbox,
-  #urlbarView-results, #urlbar-results {
-    height: unset !important;
-    max-height: calc(45.5px * 12) !important;
-  }
-/* Don't set drop-down width */
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem:not([actiontype="searchengine"]) .ac-title-text, 
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem .ac-url-text,
-  .urlbarView-row:not([type="search"]) .urlbarView-title, 
-  .urlbarView-row .urlbarView-secondary,
-  .urlbarView-row .urlbarView-url {
-    min-width: 610px !important;
-  }
-/* Create sufficient height for two lines */
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem:not([actiontype="searchengine"]) {
-    position: relative !important;
-    height: 45.5px !important;
-  }
-  .urlbarView-row:not([type="search"]) {
-    position: relative !important;
-    height: 32px !important;
-  }
-/* Subtle border between results */
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem,
-  .urlbarView-row {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important; /* light theme */
-  }
-  /* Position page title, set font-size */
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem:not([actiontype="searchengine"]) .ac-title,
-  .urlbarView-row:not([type="search"]) .urlbarView-title {
-    position: absolute !important;
-    left: 54px;
-    top: 0px;
-    font-size: 18px !important;
-  }
-  /* Position page url / action, set font-size */
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem:not([actiontype="searchengine"]) .ac-url,
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem:not([actiontype="searchengine"]) .ac-action,
-  .urlbarView-row:not([type="search"]) .urlbarView-secondary,
-  .urlbarView-row:not([type="search"]) .urlbarView-url,
-  .urlbarView:not([actionoverride]) .urlbarView-row:not([type="search"]) .urlbarView-action:not(:empty) {
-    position: absolute !important;
-    left: 54px;
-    top: 22px;
-    font-size: 12px !important;
+  .urlbarView-no-wrap {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    position: relative;
   }
 
-/* Position bookmark tags */
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem .ac-tags,
-  .urlbarView-row .urlbarView-tags {
-    position: absolute !important;
-    right: 0px;
-    top: 3px;
+  /* Adjust horizontal and vertical URL position */
+  .urlbarView-row[has-url] > .urlbarView-row-inner > .urlbarView-url {
+    padding-inline-start: calc(6px + 2px + /* favicon */ 16px) !important;
+    margin-top: calc(2px + (var(--mbarstyler-url-font-size) - var(--mbarstyler-title-font-size)));
   }
-/* Hide separator between title and URL */
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem:not([actiontype="searchengine"]) .ac-separator,
-  .urlbarView-row:not([type="search"]) .urlbarView-title-separator {
+
+
+  /* Hide the separator if there's a URL */
+  .urlbarView[actionoverride] .urlbarView-row[has-url] .urlbarView-title-separator,
+  .urlbarView .urlbarView-row[has-url]:not([type$=tab]) .urlbarView-title-separator,
+  .urlbarView .urlbarView-row[type=remotetab]:-moz-any(:hover, [selected]) .urlbarView-title-separator {
     display: none !important;
   }
-/* Position special icon (bookmark, switch-to-tab) */
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem .ac-type-icon,
-  .urlbarView-row .urlbarView-type-icon {
-    margin-left: 4px !important;
- }
-/* Prevent excess indenting of icons in Photon */
-  #PopupAutoCompleteRichResult .autocomplete-richlistitem [anonid="type-icon-spacer"],
-  #urlbar-results .autocomplete-richlistitem [anonid="type-icon-spacer"] {
-    display: none !important;
-  }
-  #PopupAutoCompleteRichResult,
-  #urlbar-results {
-     --item-padding-start: 0 !important;
-     --item-padding-end: 0 !important;
+
+  /* Move Switch Tab info to URL line :: added 2020-04-12 */
+    /* Make sure URL is always visible */
+    .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-url {
+      visibility: visible !important;
+    }
+
+    /* Show Switch to Tab or Open depending on [actionoverride] */
+    .urlbarView:not([actionoverride]) .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-url::before {
+      content: "Switch to Tab: ";
+      font-style: italic;
+      color: var(--urlbar-popup-action-color);
+    }
+
+    .urlbarView:not([actionoverride]) .urlbarView-row[type="switchtab"][has-url="true"][selected] .urlbarView-url::before {
+      color: HighlightText; /* 2020-05-31 improve visibility when selected */
+    }
+
+    .urlbarView[actionoverride] .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-url::before {
+      content: "Open: ";
+      font-style: italic;
+      color: var(--urlbar-popup-action-color);
+    }
+
+    .urlbarView[actionoverride] .urlbarView-row[type="switchtab"][has-url="true"][selected] .urlbarView-url::before {
+      color: HighlightText; /* 2020-05-31 improve visibility when selected */
+    }
+
+    /* Hide the existing Action phrase and separator */
+    .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-action,
+    .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-title-separator {
+      display: none !important;
+    }
+
+  /* A little more room for the address bar when drop-down is open :: added 2020-06-02 */
+  .urlbarView {
+    margin-block-start: 0 !important;
   }
 
+/*** End of: Megabar Styler Two-Row Flex Layout ***/

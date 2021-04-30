@@ -1,4 +1,10 @@
 Version History
+
+0.22
+- trying to fix nav bar margin-top with relative em.
+- now actually follows windows personalization color settings
+- context css is revamped and now focuses on the megabar
+
 0.21
 - actual fix
 

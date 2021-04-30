@@ -1,6 +1,11 @@
 /*CELSCHROME
 
 Version History
+0.20, 0.21, 0.22
+-trying to fix nav bar margin-top with relative em.
+-now actually follows windows personalization color settings
+-context css is revamped and now focuses on the megabar
+
 0.19
 -rename stuffs.
 -better readme
@@ -10,9 +15,19 @@ Version History
 -disable pre-tabs spacers completely.
 - re-adding compact min/max/close button with relative size instead of px.
 
-0.18
--added spacers on 1024px-mode
 */
+:root{
+  --lwt-selected-tab-background-color: none !important;
+  --lwt-toolbar-field-background-color: rgba(0,0,0,0.66) !important;      /*"toolbar":"#1a1b25"*/
+  --lwt-toolbar-field-border-color: rgba(255,255,255,0.66) !important;          /*"toolbar_field_border": "#363540"*/
+  --lwt-toolbar-field-focus: rgba(0,0,0,0.66) !important;               /*"toolbar_field_focus": "#1a1b25FB"*/
+  --lwt-toolbar-field-focus-color: rgba(0,0,0,0.66) !important;           /*"toolbar_field_text_focus": "#e5e5e6"*/
+  --toolbar-field-focus-border-color: #005F66 !important;        /*"toolbar_field_border_focus": "#005F66"*/
+  --lwt-toolbar-field-highlight: #006f80 !important;             /*"toolbar_field_highlight": "#006f80"*/
+}
+
+
+
 
 /*TITLEBAR*/
 /* compact min/max/close button */
@@ -53,7 +68,6 @@ Version History
 
 
 /*PERSONAL TOOLBAR*/ 
-
 /*removes anti-clutter on toolbar*/
 toolbarbutton.bookmark-item {
 	font-size: 14px !important;
@@ -64,31 +78,34 @@ toolbarbutton.bookmark-item {
 
 
 /*TABS TOOLBAR*/
-
 /*Removes anti-clutter  buttons*/
 #alltabs-button, .titlebar-spacer[type="pre-tabs"]
 /*.titlebar-spacer[type="post-tabs"]*/
 {display: none;}
 
+/* For native-pixel resolution only */
 #tabbrowser-tabs tab[selected]{
-	font-size: 13px;
+/*font-size: 13px;*/
 	font-weight: bold;
 }
+
+/*
 #tabbrowser-tabs tab{font-size: 11px;}
+*/
 
 /*Show close button on hover*/
 .tab-close-button {
-    visibility: collapse !important;
+  visibility: collapse !important;
 	opacity:0 !important;
 	margin-left: -20px !important;
 	transition: all 1s ease 0s !important;
 }
 .tabbrowser-tab:not([pinned]):hover .tab-close-button {
-    visibility: visible !important;
-    display: block !important;
+  visibility: visible !important;
+  display: block !important;
 	opacity: 1 !important;
 	margin-left: 0px !important;
-	transition: all 0.025s ease 0s !important;
+	transition: all 0.05s ease 0s !important;
 }
 .tab-close-button {
 -moz-box-ordinal-group: 1;
@@ -98,17 +115,19 @@ toolbarbutton.bookmark-item {
     z-index: -1;
     visibility: hidden;
 }
+
 /* Reduce the margins within tabs */
 .tab-content:not([pinned]) {padding: 4 2px !important;}
 .tab-content {
-    height: 28px;
+  /*height: 29px;*/
     margin-top: 0px;
     padding: 0px 4px 0px !important;
 }
 /* Narrow the gap between the favicon and the title */
 .tab-icon-image:not([pinned]) {margin-inline-end: 2px !important;}
-tab[selected=true]:not([pinned]) {min-width: 144px !important;}
 
+/* this one idk maybe its for oneliner tab min width thing*/
+tab[selected=true]:not([pinned]) {min-width: 144px !important;}
 
 
 /* ONE LINER MOD */
@@ -116,38 +135,46 @@ tab[selected=true]:not([pinned]) {min-width: 144px !important;}
 #TabsToolbar {
 	margin-left: 50vw !important;
 	pointer-events: auto !important;
-	background: rgba(0, 0, 0, 1) !important;
+	background: none /*rgba(0, 0, 0, 1)*/ !important;
 	transition: all 50ms !important;
+}
+
+tab[selected=true]:not([pinned]){
+		background: rgba(0, 0, 0, 1) !important;
 }
 
 /* Move navigation 65% to left and move to top line */
 #nav-bar {
 	margin-right: 50vw !important;
-	margin-top: -32px !important;
-	background: rgba(0, 0, 0, 1) !important;
+	margin-top: -2.85em !important;
+	background: none /*rgba(0, 0, 0, 1)*/ !important;
 	background-blend-mode: hard-light;
 	pointer-events: auto !important;
 	transition: all 150ms ease-out !important;
 	z-index: 2;
 }
 
+
 /* COLOR MOD */
 #PersonalToolbar {
-    background-image: url(images/noise.png) !important;
-    background-color: rgba(0, 0, 0, 1) !important;
-    backdrop-filter: blur(32px) !important;
+  /*background-image: url(images/noise.png) !important;*/
+  /*backdrop-filter: blur(32px) !important;*/
+	background: none /*rgba(0, 0, 0, 1)*/ !important;
 }
 
 #statuspanel #statuspanel-label,
 statuspanel .statuspanel-label {
-  background-color: rgba(0, 0, 0, 0.75)!important;
+  background-color: rgba(0, 0, 0, 0.66)!important;
   color: white !important;
-  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.66) !important;
 }
 
 
+/*ALERT???*/
 @-moz-document url('chrome://global/content/alerts/alert.xhtml') {
+	
     #alertBox {
+			
         border-color: rgba(107,107,107,.3) !important;
         background: /*rgba(33,33,33,.9)*/ url("chrome://global/skin/media/imagedoc-darknoise.png") !important;
         color: rgba(215,215,215,.9) !important;
@@ -167,9 +194,13 @@ statuspanel .statuspanel-label {
     }
 }
 
-/* ADDING A RULE OF THE BROWSER WIDTH IS 1280PX OR LOWER*/
+/***COMPACT MODE***/
 @media only screen and (max-width: 72em){
 	#nav-bar, #TabsToolbar {margin: 0px 0px 0px 0px !important;}
+	
+	#nav-bar{
+		margin: 0px 0px 0px 0px !important;
+	}
 	
 	/* re-add Page Actions Menu & Back/Forward Button*/
 	#pageActionButton, #forward-button, 
@@ -181,8 +212,7 @@ statuspanel .statuspanel-label {
 		opacity: 100 !important;
 	}
 	/*changing tabs size when the browser is smol*/
-	tab:not([pinned]) { min-width: 144px !important; }		
+	tab:not([pinned]) { min-width: 128px !important; }		
 	tab[selected=true]:not([pinned]) {min-width: 256px !important;}
 	
 }
-
