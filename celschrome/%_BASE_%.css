@@ -17,13 +17,13 @@ Version History
 
 */
 :root{
-  --lwt-selected-tab-background-color: none !important;
-  --lwt-toolbar-field-background-color: rgba(0,0,0,0.66) !important;      /*"toolbar":"#1a1b25"*/
-  --lwt-toolbar-field-border-color: rgba(255,255,255,0.66) !important;          /*"toolbar_field_border": "#363540"*/
-  --lwt-toolbar-field-focus: rgba(0,0,0,0.66) !important;               /*"toolbar_field_focus": "#1a1b25FB"*/
-  --lwt-toolbar-field-focus-color: rgba(0,0,0,0.66) !important;           /*"toolbar_field_text_focus": "#e5e5e6"*/
-  --toolbar-field-focus-border-color: #005F66 !important;        /*"toolbar_field_border_focus": "#005F66"*/
-  --lwt-toolbar-field-highlight: #006f80 !important;             /*"toolbar_field_highlight": "#006f80"*/
+  --lwt-selected-tab-background-color: rgba(0,0,0,0.1) !important;
+  --lwt-toolbar-field-background-color: rgba(0,0,0,0.25) !important;  
+  --lwt-toolbar-field-border-color: rgba(255,255,255,0.66) !important;
+  --lwt-toolbar-field-focus: rgba(0,0,0,0.66) !important;             
+  --lwt-toolbar-field-focus-color: rgba(255,255,255,0.66) !important;       
+  --toolbar-field-focus-border-color: white !important;        
+  --lwt-toolbar-field-highlight: white !important;             
 }
 
 
@@ -65,6 +65,9 @@ Version History
 	pointer-events: auto !important;
 	transition: all 100ms !important;
 }
+
+/**ADDRESS BAR**/
+
 
 
 /*PERSONAL TOOLBAR*/ 

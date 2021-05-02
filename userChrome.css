@@ -1,8 +1,8 @@
 /*importing main frame of cel's chrome*/
 @import url(./celschrome/%_BASE_%.css);
 
-/*importing url bar tweak
-@import url(./celschrome/%_CONTEXT_%.css);*/
+/*importing url bar tweak*/
+@import url(./celschrome/%_CONTEXT_%.css);
 
 /*importing colors but doesnt work rn
 @import url(./celschrome/%_COLORS_%.css);*/
