@@ -1,2 +1,1 @@
-2021/05/10 08:09:47 Micro started
-2021/05/10 08:10:47 real runtime file syntax
+2021/05/10 08:22:47 Micro started
