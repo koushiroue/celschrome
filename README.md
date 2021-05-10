@@ -1,5 +1,8 @@
 # Celschrome - Cel's userchrome.css  
 
+![Red Color ](assets/showcase/main-red.png)
+
+
 Heavily Customized Personal UserChrome CSS for Firefox 64+ Version.
 
 What is [userchrome.css?](https://www.userchrome.org/)
