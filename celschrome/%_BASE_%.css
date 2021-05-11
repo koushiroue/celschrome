@@ -1,6 +1,13 @@
 /*CELSCHROME
 
 Version History
+
+0.23
+-swapped context css to the new megabar css
+-better context megabar readability
+-better navbar compact compatibility
+-finally fixed tab color by removing one rule lmao
+
 0.20, 0.21, 0.22
 -trying to fix nav bar margin-top with relative em.
 -now actually follows windows personalization color settings
@@ -16,15 +23,7 @@ Version History
 - re-adding compact min/max/close button with relative size instead of px.
 
 */
-:root{
-  --lwt-selected-tab-background-color: rgba(0,0,0,0.1) !important;
-  --lwt-toolbar-field-background-color: rgba(0,0,0,0.25) !important;  
-  --lwt-toolbar-field-border-color: rgba(255,255,255,0.66) !important;
-  --lwt-toolbar-field-focus: rgba(0,0,0,0.66) !important;             
-  --lwt-toolbar-field-focus-color: rgba(255,255,255,0.66) !important;       
-  --toolbar-field-focus-border-color: white !important;        
-  --lwt-toolbar-field-highlight: white !important;             
-}
+
 
 
 
@@ -57,17 +56,14 @@ Version History
 }
 /* Show on hover or focus */
 :root:not([customizing]) :hover > #nav-bar toolbarbutton,
-:root:not([customizing]) #navigator-toolbox
-:focus-within #nav-bar toolbarbutton,
-:root:not([customizing]) :hover > #titlebar toolbarbutton {
+/*:root:not([customizing]) #navigator-toolbox
+:focus-within #nav-bar toolbarbutton,*/
+:root:not([customizing])/* :hover > #titlebar toolbarbutton*/ {
 	margin-left: 0 !important;
 	opacity: 1 !important;
 	pointer-events: auto !important;
 	transition: all 100ms !important;
 }
-
-/**ADDRESS BAR**/
-
 
 
 /*PERSONAL TOOLBAR*/ 
@@ -83,7 +79,7 @@ toolbarbutton.bookmark-item {
 /*TABS TOOLBAR*/
 /*Removes anti-clutter  buttons*/
 #alltabs-button, .titlebar-spacer[type="pre-tabs"]
-/*.titlebar-spacer[type="post-tabs"]*/
+/*, .titlebar-spacer[type="post-tabs"]*/
 {display: none;}
 
 /* For native-pixel resolution only */
@@ -92,9 +88,11 @@ toolbarbutton.bookmark-item {
 	font-weight: bold;
 }
 
-/*
-#tabbrowser-tabs tab{font-size: 11px;}
-*/
+/*tab background color*/
+.tab-background[selected="true"] {
+      background-color: rgba(0,0,0,0.5) !important;
+      background-image: none !important;
+    }
 
 /*Show close button on hover*/
 .tab-close-button {
@@ -142,14 +140,11 @@ tab[selected=true]:not([pinned]) {min-width: 144px !important;}
 	transition: all 50ms !important;
 }
 
-tab[selected=true]:not([pinned]){
-		background: rgba(0, 0, 0, 1) !important;
-}
 
 /* Move navigation 65% to left and move to top line */
 #nav-bar {
 	margin-right: 50vw !important;
-	margin-top: -2.85em !important;
+	margin-top: -2.65em !important;
 	background: none /*rgba(0, 0, 0, 1)*/ !important;
 	background-blend-mode: hard-light;
 	pointer-events: auto !important;
@@ -198,7 +193,7 @@ statuspanel .statuspanel-label {
 }
 
 /***COMPACT MODE***/
-@media only screen and (max-width: 72em){
+@media only screen and (max-width: 60em){
 	#nav-bar, #TabsToolbar {margin: 0px 0px 0px 0px !important;}
 	
 	#nav-bar{

@@ -1,8 +1,32 @@
-/*importing main frame of cel's chrome*/
+/*importing main frame of cel's chrome
+- Handles Main Features
+- Main Configuration of the Address, Tab, Nav Bar
+- Compact Mode
+*/
+
 @import url(./celschrome/%_BASE_%.css);
 
-/*importing url bar tweak*/
+/*importing context tweak
+- None as of now
+
+
+*/
+
 @import url(./celschrome/%_CONTEXT_%.css);
 
-/*importing colors but doesnt work rn
-@import url(./celschrome/%_COLORS_%.css);*/
+/*importing megabar tweak
+- Address Megabar
+
+
+*/
+
+@import url(./celschrome/%_MEGABAR_%.css);
+
+
+/*importing colors
+-Transparency Colors
+
+
+*/
+
+@import url(./celschrome/%_COLORS_%.css);
