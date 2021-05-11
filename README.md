@@ -1,9 +1,7 @@
 # Celschrome - Cel's userchrome.css  
 
-![Red Color ](assets/showcase/main-red.png) ![Blue Color](assets/showcase/main-blue.png) {align: left, size: 50%}
-
-
-Heavily Customized Personal UserChrome CSS for Firefox 64+ Version.
+<!--- ![Red Color ](assets/showcase/main-red.png) ![Blue Color](assets/showcase/main-blue.png) ![Green Color](assets/showcase/main-green.p)--> 
+![Main](assets/showcase/showcase-mix.png)
 
 What is [userchrome.css?](https://www.userchrome.org/)
 
