@@ -1,1 +1,3 @@
+
+toolkit.legacyUserProfileCustomizations.stylesheets=true
 layout.css.backdrop-filter.enabled=true

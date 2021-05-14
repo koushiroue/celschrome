@@ -1,5 +1,11 @@
 Version History
 
+0.23
+-swapped context css to the new megabar css
+-better context megabar readability
+-better navbar compact compatibility
+-finally fixed tab color by removing one rule lmao
+
 0.22
 - trying to fix nav bar margin-top with relative em.
 - now actually follows windows personalization color settings
