@@ -1,12 +1,16 @@
 /*CELSCHROME
 
 Version History
+0.24
+-make the tab line windows color compliant
+-reduce navbar margin top veryveery slightly
 
 0.23
 -swapped context css to the new megabar css
 -better context megabar readability
 -better navbar compact compatibility
 -finally fixed tab color by removing one rule lmao
+
 
 0.20, 0.21, 0.22
 -trying to fix nav bar margin-top with relative em.
@@ -94,6 +98,12 @@ toolbarbutton.bookmark-item {
       background-image: none !important;
     }
 
+/*tab line color*/
+.tab-line {
+  background-color: rgba(255,255,255,0.5) !important;
+  height: 2px !important;
+  }
+
 /*Show close button on hover*/
 .tab-close-button {
   visibility: collapse !important;
@@ -144,7 +154,7 @@ tab[selected=true]:not([pinned]) {min-width: 144px !important;}
 /* Move navigation 65% to left and move to top line */
 #nav-bar {
 	margin-right: 50vw !important;
-	margin-top: -2.65em !important;
+	margin-top: -2.6em !important;
 	background: none /*rgba(0, 0, 0, 1)*/ !important;
 	background-blend-mode: hard-light;
 	pointer-events: auto !important;
