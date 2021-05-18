@@ -1,6 +1,6 @@
 # Celschrome - Cel's userchrome.css  
   
-![Main](assets/showcase/showcase-mix.png)
+![Main](assets/showcase/showcase-mix-2.png)
 
 What is [userchrome.css?](https://www.userchrome.org/)
 
