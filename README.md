@@ -1,7 +1,7 @@
 # Celschrome - Cel's userchrome.css  
 
 Heavily Customized Personal UserChrome CSS for Firefox 64+ Version.
-
+![Main](assets/showcase/showcase-mix-3.png)
 What is [userchrome.css?](https://www.userchrome.org/)
 
 ## Features
@@ -13,7 +13,7 @@ This css is inspired from most userchrome.css tweaks repos, including the one-li
 
 ### Overall Tweaks
 
-- Colorless Theme. (uses the color from Windows Personalization Setting)
+- ~~Colorless Theme. (uses the color from Windows Personalization Setting)~~ `absolutely broken for v89`
 - ~~*RGB*~~ `deprecated since Firefox v69`
 
 ### Navigation Tweaks  
@@ -21,11 +21,11 @@ This css is inspired from most userchrome.css tweaks repos, including the one-li
 - Allows One-Liner Compact Mode (Address Bar + Tab) when Browser window is over certain size.
 - Tab auto-size focus with auto-hide close button.
 - Address Bar auto-expand and auto-hide when hovered. (buggy)  
-- Reduce most* spaces in tabs, navigations and bookmark bar for more compact footprint.  
+- Reduce most* spaces in tabs, navigations and bookmark bar for more compact footprint.  `seemingly not much for v89`
 
 ### Personal Bar Tweaks  
 
-- Transparent Background color in bookmark folder.  
+- ~~Transparent Background color in bookmark folder.~~ `nope for v89`
 - ~~Auto-Hide Personal Bar.~~ `dropped support, may readded in the future`
 
 ---
