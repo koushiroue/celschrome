@@ -1,6 +1,16 @@
 /*CELSCHROME
 
 Version History
+
+0.25
+-try to fix context css for v89
+-fixing navbar margintop ONCE AGAIN
+-remove most redundant context border
+-no longer windows color compliant
+-toolbar is now normal mode focused (compact mode is not supported) 
+-fixing personal bar spacings
+-removed tabline
+
 0.24
 -make the tab line windows color compliant
 -reduce navbar margin top veryveery slightly
@@ -53,7 +63,7 @@ Version History
 
 /* Hide buttons and Page Action Menu */
 :root:not([customizing]) #nav-bar toolbarbutton {
-	margin-left: -30px !important;
+	margin-left: -32px !important;
 	opacity: 0 !important;
 	pointer-events: none !important;
 	transition: all 500ms ease 0.1740s !important;
@@ -75,7 +85,7 @@ Version History
 toolbarbutton.bookmark-item {
 	font-size: 14px !important;
 	height: 18px !important;
-    padding-right: 1px !important;
+   padding-right: 1px !important;
 	padding-left: 1px !important;
 }
 
@@ -98,18 +108,12 @@ toolbarbutton.bookmark-item {
       background-image: none !important;
     }
 
-/*tab line color*/
-.tab-line {
-  background-color: rgba(255,255,255,0.5) !important;
-  height: 2px !important;
-  }
-
 /*Show close button on hover*/
 .tab-close-button {
   visibility: collapse !important;
 	opacity:0 !important;
-	margin-left: -20px !important;
-	transition: all 1s ease 0s !important;
+	margin-left: -18px !important;
+	transition: all 0.5s ease 0s !important;
 }
 .tabbrowser-tab:not([pinned]):hover .tab-close-button {
   visibility: visible !important;
@@ -121,6 +125,7 @@ toolbarbutton.bookmark-item {
 .tab-close-button {
 -moz-box-ordinal-group: 1;
     display: -moz-box !important;
+	  scale: 125% !important;
     position: relative;
     margin-right: 0px !important;
     z-index: -1;
@@ -135,7 +140,10 @@ toolbarbutton.bookmark-item {
     padding: 0px 4px 0px !important;
 }
 /* Narrow the gap between the favicon and the title */
-.tab-icon-image:not([pinned]) {margin-inline-end: 2px !important;}
+.tab-icon-image:not([pinned]) {margin-inline-end: 4px !important;}
+
+/**/
+tab:not([pinned]) { min-width: 96px !important; }		
 
 /* this one idk maybe its for oneliner tab min width thing*/
 tab[selected=true]:not([pinned]) {min-width: 144px !important;}
@@ -154,7 +162,7 @@ tab[selected=true]:not([pinned]) {min-width: 144px !important;}
 /* Move navigation 65% to left and move to top line */
 #nav-bar {
 	margin-right: 50vw !important;
-	margin-top: -2.6em !important;
+	margin-top: -3.66em !important;
 	background: none /*rgba(0, 0, 0, 1)*/ !important;
 	background-blend-mode: hard-light;
 	pointer-events: auto !important;
@@ -172,9 +180,9 @@ tab[selected=true]:not([pinned]) {min-width: 144px !important;}
 
 #statuspanel #statuspanel-label,
 statuspanel .statuspanel-label {
-  background-color: rgba(0, 0, 0, 0.66)!important;
+  background-color: rgba(0, 0, 0, 0.75)!important;
   color: white !important;
-  border: 1px solid rgba(255, 255, 255, 0.66) !important;
+  border: 1px solid rgba(255, 255, 255, 0.75) !important;
 }
 
 

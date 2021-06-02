@@ -34,7 +34,7 @@
 }
 
 /* Base */
-
+/*
 #backForwardMenu,
 #contentAreaContextMenu,
 #customizationPaletteItemContextMenu,
@@ -87,9 +87,9 @@
 	border: 1px solid var(--context-border) !important;
 	padding: 0px 0px 0px 0px !important;
 	margin: 0px 0px 0px 0px !important;
-	min-width: 192px !important;
+	min-width: 144px !important;
 }
-
+*/
 #back-button > menupopup :-moz-any(menuitem, menu),
 #backForwardMenu :-moz-any(menuitem, menu),
 #contentAreaContextMenu :-moz-any(menuitem, menu),
@@ -117,8 +117,9 @@
 {
 	-moz-appearance: none !important;
 	color: var(--context-front) !important;
-	padding: 0px 0px 0px 0px !important;
-	min-height: 18px !important;
+	padding: 0px 0px 0px 4px !important;
+	margin-right: -4px !important; 
+	min-height: 16px !important;
 }
 
 #back-button > menupopup menugroup,
@@ -146,10 +147,9 @@
 #viewButton > menupopup menugroup,
 #widget-overflow #customizationPanelItemContextMenu menugroup
 {
-	padding: 0px !important;
 	background-color: transparent !important;
 }
-
+/*
 #back-button > menupopup menuseparator,
 #backForwardMenu menuseparator,
 #contentAreaContextMenu menuseparator,
@@ -181,7 +181,7 @@
 	border-top: 1px solid var(--context-separator) !important;
 	border-bottom: none !important;
 }
-
+*/
 /* Checkbox and Radio Items */
 
 #back-button menuitem[type="checkbox"],
@@ -213,7 +213,7 @@
 {
 	-moz-appearance: none !important;
 }
-
+/*
 #back-button menuitem[checked="true"][type="checkbox"] > .menu-iconic-left,
 #back-button > menupopup menuitem[checked="true"][type="checkbox"] > .menu-iconic-left,
 #backForwardMenu menuitem[checked="true"][type="checkbox"] > .menu-iconic-left,
@@ -249,7 +249,7 @@
 	border-width: 0px 0px 2px 2px;
 	transform: rotate(-45deg) scale(.75);
 }
-
+*/
 #back-button menuitem[type="radio"],
 #back-button > menupopup menuitem[type="radio"],
 #backForwardMenu menuitem[type="radio"],
@@ -279,7 +279,7 @@
 {
 	-moz-appearance: none !important;
 }
-
+/*
 #back-button menuitem[checked="true"][type="radio"] > .menu-iconic-left,
 #back-button > menupopup menuitem[checked="true"][type="radio"] > .menu-iconic-left,
 #backForwardMenu menuitem[checked="true"][type="radio"] > .menu-iconic-left,
@@ -309,7 +309,7 @@
 {
 	-moz-appearance: none !important;
 	border: solid var(--context-front);
-	height: 17px !important;
+	height: 24px !important;
 	border-radius: 100%;
 	background: var(--context-front);
 	margin-left: 7px !important;
@@ -318,7 +318,8 @@
 	padding: 1px !important;
 	transform: scale(0.5);
 }
-
+*/
+/*
 #back-button menuitem[type="checkbox"] > .menu-iconic-text,
 #back-button > menupopup menuitem[type="checkbox"] > .menu-iconic-text,
 #backForwardMenu menuitem[type="checkbox"] > .menu-iconic-text,
@@ -346,10 +347,10 @@
 #viewButton > menupopup menuitem[type="checkbox"] > .menu-iconic-text,
 #widget-overflow > #customizationPanelItemContextMenu menuitem[type="checkbox"] > .menu-iconic-text
 {
-	margin-left: 15px !important;
+	margin-left: 8px !important;
 	-moz-appearance: none !important;
 }
-
+*/
 #back-button menuitem[type="radio"] > .menu-iconic-text,
 #back-button > menupopup menuitem[type="radio"] > .menu-iconic-text,
 #backForwardMenu menuitem[type="radio"] > .menu-iconic-text,
@@ -377,7 +378,7 @@
 #viewButton > menupopup menuitem[type="radio"] > .menu-iconic-text,
 #widget-overflow > #customizationPanelItemContextMenu menuitem[type="radio"] > .menu-iconic-text
 {
-	padding-left: 13px !important;
+	padding-left: 8px !important;
 	-moz-appearance: none !important;
 }
 
@@ -473,7 +474,7 @@
 }
 
 /* Icons */
-
+/*
 #back-button menuitem > .menu-iconic-left,
 #back-button > menupopup menuitem > .menu-iconic-left,
 #backForwardMenu menuitem > .menu-iconic-left,
@@ -502,9 +503,10 @@
 #widget-overflow > #customizationPanelItemContextMenu menuitem > .menu-iconic-left
 {
 	-moz-appearance: none !important;
-	padding: 0px 2px 0px 4px !important;
+	padding: 0px 0px 0px 0px !important;
 }
-
+*/
+/*
 #back-button > menupopup .menu-right,
 #backForwardMenu .menu-right,
 #contentAreaContextMenu .menu-right,
@@ -538,3 +540,4 @@
 	border-width: 0px 2px 2px 0px;
 	transform: rotate(-45deg) scale(.55);
 }
+*/
