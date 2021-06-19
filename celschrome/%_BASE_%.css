@@ -2,6 +2,9 @@
 
 Version History
 
+0.26
+-set menu icon to original position
+
 0.25
 -try to fix context css for v89
 -fixing navbar margintop ONCE AGAIN
@@ -53,10 +56,11 @@ Version History
 
 /*NAVIGATION TOOLBAR*/
 /* Move hamburger menu to the left */
+/*
 #PanelUI-button, #customization-panel-container,
 #customization-panelWrapper .panel-arrow { 
   -moz-box-ordinal-group: 0 !important; }
-
+*/
 /* Remove Page Actions Menu & Back/Forward Button */
 #pageActionButton, #forward-button,
 #back-button {display: none !important;}
