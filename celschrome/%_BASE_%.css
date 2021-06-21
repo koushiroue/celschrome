@@ -165,27 +165,19 @@ tab[selected=true]:not([pinned]) {min-width: 144px !important;}
 	transition: all 50ms !important;
 }
 
-
 /* Move navigation 65% to left and move to top line */
-@media (min-resolution: 144dpi) {
 	#nav-bar {
 	 margin-right: 50vw !important;
-	 margin-top: -3em !important;
+	 background: none /*rgba(0, 0, 0, 1)*/ !important;
 	 pointer-events: auto !important;
 	 transition: all 150ms ease-out !important;
 	 z-index: 2;
   }
+@media (resolution: 144dpi) {
+	#nav-bar {margin-top: -3.66em !important;}
 }
 @media (max-resolution: 100dpi) {
-	#nav-bar {
-	 margin-right: 50vw !important;
-	 margin-top: -3.66em !important;
-	 background: none /*rgba(0, 0, 0, 1)*/ !important;
-	 background-blend-mode: hard-light;
-	 pointer-events: auto !important;
-	 transition: all 150ms ease-out !important;
-	 z-index: 2;
-  }
+	#nav-bar {margin-top: -3.66em !important;}
 }
 
 
