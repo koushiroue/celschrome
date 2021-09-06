@@ -2,6 +2,8 @@
 
 Heavily Customized Personal UserChrome CSS for Firefox 64+ Version.
 
+![Main](assets/showcase/showcase-mix-3.png)
+
 What is [userchrome.css?](https://www.userchrome.org/)
 
 ## Features
