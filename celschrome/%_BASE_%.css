@@ -1,12 +1,8 @@
 /*CELSCHROME
 
 Version History
-
-0.27
--try -3em for 150%, -3.66 for 100%
-
 0.26
--set menu icon to original position
+-obliterated one liner mod
 
 0.25
 -try to fix context css for v89
@@ -41,7 +37,6 @@ Version History
 -enable spacers on post-tabs in one-liner mod.
 -disable pre-tabs spacers completely.
 - re-adding compact min/max/close button with relative size instead of px.
-
 */
 
 
@@ -59,11 +54,10 @@ Version History
 
 /*NAVIGATION TOOLBAR*/
 /* Move hamburger menu to the left */
-/*
 #PanelUI-button, #customization-panel-container,
 #customization-panelWrapper .panel-arrow { 
   -moz-box-ordinal-group: 0 !important; }
-*/
+
 /* Remove Page Actions Menu & Back/Forward Button */
 #pageActionButton, #forward-button,
 #back-button {display: none !important;}
@@ -85,6 +79,17 @@ Version History
 	pointer-events: auto !important;
 	transition: all 100ms !important;
 }
+
+/*** Tighten up drop-down/context/popup menu spacing ***/
+/*Courtesy of userchrome.org*/
+menupopup > menuitem, menupopup > menu {
+  padding-block: 4px !important;
+}
+:root {
+  --arrowpanel-menuitem-padding: 4px 8px !important;
+}
+
+
 
 
 /*PERSONAL TOOLBAR*/ 
@@ -155,30 +160,106 @@ tab:not([pinned]) { min-width: 96px !important; }
 /* this one idk maybe its for oneliner tab min width thing*/
 tab[selected=true]:not([pinned]) {min-width: 144px !important;}
 
+/*** Proton Tabs Tweaks ***/
 
-/* ONE LINER MOD */
-/* Move tabs 35% to right */
+/* Adjust tab corner shape, optionally remove space below tabs */
+
+#tabbrowser-tabs {
+    --user-tab-rounding: 6px;
+}
+
+.tab-background {
+    border-radius: var(--user-tab-rounding) !important;
+}
+
+/* Override Normal Density height to Compact Density height only for tabs */
+
+#TabsToolbar, #tabbrowser-tabs {
+    --tab-min-height: 29px !important;
+}
+    /* Tweak for covering a line at the bottom of the active tab on some themes 8/11/2021 */
+#main-window[sizemode="normal"] #toolbar-menubar[autohide="true"] + #TabsToolbar, 
+#main-window[sizemode="normal"] #toolbar-menubar[autohide="true"] + #TabsToolbar #tabbrowser-tabs {
+    --tab-min-height: 30px !important;
+}
+#scrollbutton-up,
+#scrollbutton-down {
+    border-top-width: 0 !important;
+    border-bottom-width: 0 !important;
+}
+
+/*** Audio Playing / Mute Button side-by-side when sound is playing ***/
+
 #TabsToolbar {
-	margin-left: 50vw !important;
-	pointer-events: auto !important;
-	background: none /*rgba(0, 0, 0, 1)*/ !important;
-	transition: all 50ms !important;
+    --user-mute-button-height: 20px;  /* default size is 12px, site icon is 16px */
 }
 
-/* Move navigation 65% to left and move to top line */
-	#nav-bar {
-	 margin-right: 50vw !important;
-	 background: none /*rgba(0, 0, 0, 1)*/ !important;
-	 pointer-events: auto !important;
-	 transition: all 150ms ease-out !important;
-	 z-index: 2;
-  }
-@media (resolution: 144dpi) {
-	#nav-bar {margin-top: -3.66em !important;}
+/* Move the mute/unmute button to the right and enlarge it */
+.tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) {
+    width: var(--user-mute-button-height) !important;
+    height: var(--user-mute-button-height) !important;
+    margin-left: calc(var(--user-mute-button-height) / 2 + 2px) !important; /* pushes icon to the right */
+    margin-right: 2px !important; /* closes up some space before the text */
+    padding: 0 !important; /* allows icon to expand to full size */
 }
-@media (max-resolution: 100dpi) {
-	#nav-bar {margin-top: -3.66em !important;}
+
+/* Move the site icon to the left a bit and adjust position */
+.tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) > :not(.tab-icon-overlay) {
+    margin-left: -4px !important; /* pushes icon to the left */
+    margin-top: calc((var(--user-mute-button-height) - 16px) / 2) !important;  /* keep site icon reasonably positioned */
 }
+
+/* Override the rules for hover/not hover visibility */
+   /* for mute button */
+.tabbrowser-tab:not(:hover) .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]), 
+   /* for site icon */
+.tabbrowser-tab:hover .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) > :not(.tab-icon-overlay), 
+   /* for site icon with Compact density */
+:root[uidensity="compact"] .tab-icon-stack:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]) > :not(.tab-icon-overlay) {
+    opacity: 1 !important; /* overrides full transparency with full opacity */
+}
+
+/* Color the icon on hover for confirmation or avoidance */
+.tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]):hover {
+    fill: green !important;
+}
+[lwthemetextcolor="bright"] .tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted]):hover {
+    fill: lightgreen !important; /* for dark themes */
+}
+
+/* Tweaked Audio playing/Mute button rules for pinned tabs */
+.tab-icon-overlay:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]) {
+    width: var(--user-mute-button-height) !important;
+    height: var(--user-mute-button-height) !important;
+    margin-left: 2px !important; /* allow some overlap to reduce expanded width */
+    margin-right: -2px !important; /* reduce empty space on the right */
+    padding: 0 !important; /* allows icon to expand to full size */
+    top: 0 !important; /* align button with site icon */
+}
+.tab-icon-stack:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]) > :not(.tab-icon-overlay) {
+    margin-left: -6px !important; /* reduce empty space on the left */
+    margin-top: calc((var(--user-mute-button-height) - 16px) / 2) !important;  /* keep site icon reasonably positioned */
+}
+.tabbrowser-tab:not(:hover) .tab-icon-overlay:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]), 
+   /* for site icon */
+.tabbrowser-tab:hover .tab-icon-stack:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]) > :not(.tab-icon-overlay), 
+   /* for site icon with Compact density */
+:root[uidensity="compact"] .tab-icon-stack:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]) > :not(.tab-icon-overlay) {
+    opacity: 1 !important; /* overrides full transparency with full opacity */
+}
+.tab-icon-overlay:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]):hover {
+    fill: green !important;
+}
+[lwthemetextcolor="bright"] .tab-icon-overlay:not([crashed]):is([pinned], [sharing]):is([soundplaying], [muted]):hover {
+    fill: lightgreen !important; /* for dark themes */
+}
+
+/* Tweak Options as of 8/13/2021; Generated Wed Aug 25 2021 15:11:23 GMT+0800 (Malaysia Time) */
+
+
+
+
+
 
 
 /* COLOR MOD */
@@ -220,25 +301,3 @@ statuspanel .statuspanel-label {
     }
 }
 
-/***COMPACT MODE***/
-@media only screen and (max-width: 60em){
-	#nav-bar, #TabsToolbar {margin: 0px 0px 0px 0px !important;}
-	
-	#nav-bar{
-		margin: 0px 0px 0px 0px !important;
-	}
-	
-	/* re-add Page Actions Menu & Back/Forward Button*/
-	#pageActionButton, #forward-button, 
-	#back-button {display: initial !important;}
-  #alltabs-button, .titlebar-spacer[type="post-tabs"] {display : block;}
-	/* show buttons */
-	:root:not([customizing]) #nav-bar toolbarbutton {
-		margin-left: 0px !important;
-		opacity: 100 !important;
-	}
-	/*changing tabs size when the browser is smol*/
-	tab:not([pinned]) { min-width: 128px !important; }		
-	tab[selected=true]:not([pinned]) {min-width: 256px !important;}
-	
-}
