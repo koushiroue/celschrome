@@ -12,7 +12,7 @@
 - fixing navbar margintop ONCE AGAIN
 - remove most redundant context border
 - no longer windows color compliant
-- toolbar is now normal mode focused (compact mode is not supported) 
+- toolbar is now normal mode focused (compact mode is not supported)  
 - fixing personal bar spacings
 - removed tabline
 
@@ -43,3 +43,7 @@
 - enable spacers on post-tabs in one-liner mod.
 - disable pre-tabs spacers completely.
 - re-adding compact min/max/close button with relative size instead of px.  
+
+0.1  
+
+- init.  
