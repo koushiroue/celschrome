@@ -4,7 +4,7 @@
 - Compact Mode
 */
 
-@import url(./celschrome/%_BASE_%.css);
+@import url(./chrome/%_BASE_%.css);
 
 
 /*importing megabar tweak
@@ -13,5 +13,5 @@
 
 */
 
-@import url(./celschrome/%_MEGABAR_%.css);
+@import url(./chrome/%_MEGABAR_%.css);
 
