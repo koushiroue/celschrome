@@ -4,8 +4,15 @@
 - Compact Mode
 */
 
-@import url(./chrome/%_BASE_%.css);
+@import url(./celschrome/%_BASE_%.css);
 
+/*importing context tweak
+- None as of now
+
+
+*/
+
+/*@import url(./celschrome/%_CONTEXT_%.css);*/
 
 /*importing megabar tweak
 - Address Megabar
@@ -13,5 +20,13 @@
 
 */
 
-@import url(./chrome/%_MEGABAR_%.css);
+@import url(./celschrome/%_MEGABAR_%.css);
 
+
+/*importing colors
+-Transparency Colors
+
+
+*/
+
+@import url(./celschrome/%_COLORS_%.css);

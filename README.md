@@ -1,9 +1,6 @@
 # Celschrome - Cel's userchrome.css  
 
 Heavily Customized Personal UserChrome CSS for Firefox 64+ Version.
-**Currently inactive**
-
-![Main](assets/showcase/showcase-mix-3.png)
 
 What is [userchrome.css?](https://www.userchrome.org/)
 

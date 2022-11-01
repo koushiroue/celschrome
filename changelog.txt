@@ -1,49 +1,53 @@
+Version History
 
-# Version History
+
+Version History
+0.27
+- restore titlebar buttons margins
+- fixed addressbar focus / selected color
 
 0.26
-
-- obliterated one liner mod
-- remove auto-hide address bar functionality
+- set menu icon to original position
 
 0.25
-
 - try to fix context css for v89
 - fixing navbar margintop ONCE AGAIN
 - remove most redundant context border
 - no longer windows color compliant
-- toolbar is now normal mode focused (compact mode is not supported)  
+- toolbar is now normal mode focused (compact mode is not supported) 
 - fixing personal bar spacings
 - removed tabline
 
-0.24
 
+0.24
 - make the tab line windows color compliant
 - reduce navbar margin top veryveery slightly
 
-0.23
 
+0.23
 - swapped context css to the new megabar css
 - better context megabar readability
 - better navbar compact compatibility
 - finally fixed tab color by removing one rule lmao
 
-0.20, 0.21, 0.22
-
+0.22
 - trying to fix nav bar margin-top with relative em.
 - now actually follows windows personalization color settings
 - context css is revamped and now focuses on the megabar
 
-0.19
+0.21
+- actual fix
 
-- rename stuffs.
-- better readme
+0.20
+- better readme.
 - one-liner now moves navbar using vw instead of -32px
 - also using 70em instead of 1280 / 1024px.
 - enable spacers on post-tabs in one-liner mod.
 - disable pre-tabs spacers completely.
-- re-adding compact min/max/close button with relative size instead of px.  
+- re-adding compact min/max/close button with relative size instead of px.
 
-0.1  
+0.19
+-github repo release.
 
-- init.  
+0.18
+-added spacers on 1024px-mode

@@ -1,0 +1,69 @@
+/*megabar colors i think i stole it from reddit oof*/
+:root{
+       
+}  
+
+/* Adjust heights for scrolling */
+  #urlbarView-results, #urlbar-results {
+    max-height: calc(1.625 * (var(--mbarstyler-title-font-size) + var(--mbarstyler-url-font-size) + var(--mbarstyler-bottom-border-width)) * var(--mbarstyler-max-rows-without-scrolling)) !important;
+  }
+
+  /* Wrap the url (adapted from Fx75 narrow bar design) */
+  .urlbarView-row-inner {
+    flex-wrap: wrap !important;
+    padding-top: 0 !important;
+    padding-bottom: 2px !important;
+  }
+  .urlbarView-no-wrap {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    position: relative;
+  }
+
+  /* Adjust horizontal and vertical URL position */
+  .urlbarView-row[has-url] > .urlbarView-row-inner > .urlbarView-url {
+    padding-inline-start: calc(6px + 2px + /* favicon */ 16px) !important;
+    margin-top: calc(2px + (var(--mbarstyler-url-font-size) - var(--mbarstyler-title-font-size)));
+  }
+
+  /* Hide the separator if there's a URL */
+  .urlbarView[actionoverride] .urlbarView-row[has-url] .urlbarView-title-separator,
+  .urlbarView .urlbarView-row[has-url]:not([type$=tab]) .urlbarView-title-separator,
+  .urlbarView .urlbarView-row[type=remotetab]:-moz-any(:hover, [selected]) .urlbarView-title-separator {
+    display: none !important;
+  }
+
+  /* Move Switch Tab info to URL line :: added 2020-04-12 */
+    /* Make sure URL is always visible */
+    .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-url {
+      visibility: visible !important;
+    }
+
+    /* Show Switch to Tab or Open depending on [actionoverride] */
+    .urlbarView:not([actionoverride]) .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-url::before {
+      content: "Switch to Tab: ";
+      font-style: italic;
+      color: var(--urlbar-popup-action-color);
+    }
+    .urlbarView:not([actionoverride]) .urlbarView-row[type="switchtab"][has-url="true"][selected] .urlbarView-url::before {
+      color: HighlightText; /* 2020-05-31 improve visibility when selected */
+    }
+    .urlbarView[actionoverride] .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-url::before {
+      content: "Open: ";
+      font-style: italic;
+      color: var(--urlbar-popup-action-color);
+    }
+    .urlbarView[actionoverride] .urlbarView-row[type="switchtab"][has-url="true"][selected] .urlbarView-url::before {
+      color: HighlightText; /* 2020-05-31 improve visibility when selected */
+    }
+
+    /* Hide the existing Action phrase and separator */
+    .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-action,
+    .urlbarView-row[type="switchtab"][has-url="true"] .urlbarView-title-separator {
+      display: none !important;
+    }
+
+  /* A little more room for the address bar when drop-down is open :: added 2020-06-02 */
+  .urlbarView {
+    margin-block-start: 0 !important;
+  }
