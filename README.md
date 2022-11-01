@@ -1,6 +1,7 @@
 # Celschrome - Cel's userchrome.css  
 
 Heavily Customized Personal UserChrome CSS for Firefox 64+ Version.
+![Main](assets/showcase/showcase-mix-3.png)  
 
 What is [userchrome.css?](https://www.userchrome.org/)
 
@@ -21,11 +22,11 @@ This css is inspired from most userchrome.css tweaks repos, including the one-li
 - Allows One-Liner Compact Mode (Address Bar + Tab) when Browser window is over certain size.
 - Tab auto-size focus with auto-hide close button.
 - Address Bar auto-expand and auto-hide when hovered. (buggy)  
-- Reduce most* spaces in tabs, navigations and bookmark bar for more compact footprint.  
+- Reduce most* spaces in tabs, navigations and bookmark bar for more compact footprint `*not including window buttons.`  
 
 ### Personal Bar Tweaks  
 
-- Transparent Background color in bookmark folder.  
+- ~~Transparent Background color in bookmark folder.~~ `idk what happened lmao`  
 - ~~Auto-Hide Personal Bar.~~ `dropped support, may readded in the future`
 
 ---
@@ -42,7 +43,4 @@ Go to `about:config` in Firefox and do the following :
 Download `chrome.zip` from [latest release](https://github.com/koushiroue/celschrome/releases/latest) and extract it to your Firefox profile folder.
 Go to `about:profiles` to check the location of the folder.
 
-## To-do  
 
-- [x] Update stuff around here.  
-- [x] Create this readme.
