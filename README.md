@@ -36,7 +36,7 @@ This css is inspired from most userchrome.css tweaks repos, including the one-li
 Go to `about:config` in Firefox and do the following :  
 
 - Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.  
-- (Optional) Set `layout.css.backdrop-filter.enabled` to `true`.  
+- ~~(Optional) Set `layout.css.backdrop-filter.enabled` to `true`.~~ `default to true on v106`  
 
 ## Installing  
 
