@@ -3,11 +3,12 @@ Version History
 
 Version History
 0.27
+- change compact mode max width trigger to a larger 67em size
 - restore titlebar buttons margins
 - fixed addressbar focus / selected color
 
 0.26
-- set menu icon to original position
+- reset menu icon to its original position
 
 0.25
 - try to fix context css for v89

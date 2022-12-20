@@ -2,6 +2,7 @@
 
 Version History
 0.27
+-change compact mode max width trigger to more larger 67em size
 -restore titlebar buttons margins
 -fixed addressbar focus / selected color
 
@@ -64,10 +65,10 @@ Version History
 /*PERSONAL TOOLBAR*/ 
 /*removes anti-clutter on toolbar*/
 toolbarbutton.bookmark-item {
-	font-size: 14px !important;
-	height: 18px !important;
-   padding-right: 1px !important;
-	padding-left: 1px !important;
+	font-size:     14px !important;
+	/*height:        24px !important;*/
+	padding-right: 4px !important;
+	padding-left:  4px !important;
 }
 
 
@@ -149,6 +150,9 @@ tab[selected=true]:not([pinned]) {min-width: 128px !important;}
 	transition: all 100ms ease-out !important;
 	z-index: 2;
 }
+#urlbar {
+	
+}
 
 
 /* COLOR MOD */
@@ -189,7 +193,7 @@ statuspanel .statuspanel-label {
 }
 
 /***COMPACT MODE***/
-@media only screen and (max-width: 50em){
+@media only screen and (max-width: 67em){
 	#nav-bar, #TabsToolbar {margin: 0px 0px 0px 0px !important;}
 	#nav-bar{margin: 0px 0px 0px 0px !important;}
 	
