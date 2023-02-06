@@ -3,9 +3,10 @@ Version History
 
 Version History
 0.27
-- change compact mode max width trigger to a larger 67em size
-- restore titlebar buttons margins
-- fixed addressbar focus / selected color
+-removed #alltabs-button because of the damn Firefox View (tm).
+-change compact mode max width trigger to more larger 67em size
+-restore titlebar buttons margins
+-fixed addressbar focus / selected color
 
 0.26
 - reset menu icon to its original position
