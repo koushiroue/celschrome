@@ -1,7 +1,17 @@
 Version History
 
+v0.28
+- added some onebar (github link) urlbar features.
+- changed focused tabs to 20vw.
+- changed onelinertabs unfocused width from 92px to 5vw.
+- changed default tab unfocused width from 92px to 10vw.
+- fixed tab close buton scaling.
+- remove tab content padding.
+- reset hamburger menu position.
+- new border with radius alert / status panel.
+- trimmed most of may or may not be deprecated / legacy stuff
+- removed new tab close button on compact mode
 
-Version History
 0.27
 -removed #alltabs-button because of the damn Firefox View (tm).
 -change compact mode max width trigger to more larger 67em size
