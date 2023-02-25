@@ -11,11 +11,12 @@ This css is inspired from most userchrome.css tweaks repos, including the one-li
 
 - [SimplerentFox](https://github.com/migueravila/SimplerentFox)  
 - [CustomCSSforFx](https://github.com/Aris-t2/CustomCSSforFx)  
+- [FirefoxCssHacks](https://github.com/MrOtherGuy/firefox-csshacks)
 
 ### Overall Tweaks
 
 - Colorless Theme. (uses the color from Windows Personalization Setting)
-- ~~*RGB*~~ `deprecated since Firefox v69`
+- ~~*RGB*~~ ~~`deprecated since Firefox v69`~~ `in working in v100+ with FirefoxCssHacks`
 
 ### Navigation Tweaks  
 
@@ -37,6 +38,7 @@ Go to `about:config` in Firefox and do the following :
 
 - Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.  
 - ~~(Optional) Set `layout.css.backdrop-filter.enabled` to `true`.~~ `default to true on v106`  
+- Set `layout.css.color-mix.enabled` to `true`. `For RGB Mod`  
 
 ## Installing  
 
