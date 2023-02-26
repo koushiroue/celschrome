@@ -5,7 +5,8 @@
 
 /* Adjust heights for scrolling */
   #urlbarView-results, #urlbar-results {
-    max-height: calc(1.625 * (var(--mbarstyler-title-font-size) + var(--mbarstyler-url-font-size) + var(--mbarstyler-bottom-border-width)) * var(--mbarstyler-max-rows-without-scrolling)) !important;
+    max-height: calc(1.625 * (var(--mbarstyler-title-font-size) + var(--mbarstyler-url-font-size) 
+    + var(--mbarstyler-bottom-border-width)) * var(--mbarstyler-max-rows-without-scrolling)) !important;
   }
 
   /* Wrap the url (adapted from Fx75 narrow bar design) */

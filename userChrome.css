@@ -15,4 +15,10 @@
 
 @import url(./celschrome/%_MEGABAR_%.css);
 
+/*AUTOHIDE PERSONAL BOOKMARK BAR*/
+/*https://github.com/MrOtherGuy/firefox-csshacks*/
+@import url(./imported/firefox-csshacks/chrome/autohide_bookmarks_toolbar.css);
 
+/*RGB MOD*/
+@import url(./imported/firefox-csshacks/chrome/non_floating_sharp_tabs.css);
+@import url(./imported/firefox-csshacks/chrome/tabs_animated_gradient_border.css);

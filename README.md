@@ -1,8 +1,8 @@
 # Celschrome - Cel's userchrome.css  
 
-
-![Main](assets/showcase/showcase-mix-3.png)  
-
+![Main](assets/showcase/title-light.png#gh-light-mode-only)
+![Main2](assets/showcase/title-dark.png#gh-dark-mode-only)  
+![Window](assets/showcase/window-1.png)
 What is [userchrome.css?](https://www.userchrome.org/)
 
 ## Features
@@ -44,5 +44,3 @@ Go to `about:config` in Firefox and do the following :
 
 Download `chrome.zip` from [latest release](https://github.com/koushiroue/celschrome/releases/latest) and extract it to your Firefox profile folder.
 Go to `about:profiles` to check the location of the folder.
-
-

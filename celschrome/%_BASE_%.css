@@ -1,78 +1,76 @@
 /*CELSCHROME
-v0.28
-- added some onebar (github link) urlbar features.
-- changed focused tabs to 20vw.
-- changed onelinertabs unfocused width from 92px to 5vw.
-- changed default tab unfocused width from 92px to 10vw.
-- fixed tab close buton scaling.
-- remove tab content padding.
-- reset hamburger menu position.
-- new border with radius alert / status panel.
-- trimmed most of may or may not be deprecated / legacy stuff
-- removed new tab close button on compact mode
+v0.29
+- removed alert css
 */
 
 /*TITLEBAR*/
 /* compact min/max/close button */
-.titlebar-button {
-	padding-left: 0.75vw !important;
-	padding-right: 0.75vw !important;
-	padding-top: 4px !important; 
-}
+.titlebar-button { padding: 0.75vw !important; }
 
 /*NAVIGATION TOOLBAR*/
 /* Move hamburger menu to the left */
+/*
 #PanelUI-button, #customization-panel-container,
 #customization-panelWrapper .panel-arrow { 
   -moz-box-ordinal-group: 0 !important; }
 /* Hide flexible spaces */
 toolbarspring, [id^="wrapper-customizableui-special-spring"] {
-    display: none !important; }
+  display: none !important; }
 /* Remove Page Actions Menu & Back/Forward Button */
 #forward-button, #back-button {display: none !important;}
 
-
-/*TRANSITION*/
-:root {
-    --in-transition: font-size .2s, padding .2s, margin .2s, max-width .2s, opacity .2s .15s;
-    --out-transition: font-size .2s, padding .2s, margin .2s, max-width .2s, opacity .07s;
-}
-
 /* Hide buttons and Page Action Menu */
 #nav-bar toolbarbutton {
-	margin-left: -32px !important;
+	margin-left: -35px !important; /*taking in account there only 5 item on right side*/
+  padding: 0 !important;
 	opacity: 0 !important;
 	pointer-events: none !important;
 	transition: var(--out-transition) !important;
 }
-/* Show on hover or focus */
-#navigator-toolbox:focus-within,
-#navigator-toolbox:hover > #nav-bar toolbarbutton {
-	margin-left: 0 !important;
-	opacity: 1 !important;
+/* Show on hover or focus */ /*FIXED 2018 - 2023 LMAO*/
+#nav-bar:hover toolbarbutton { 
+  visibility: visible;
+  margin: initial !important;
+  padding: initial !important;
+	opacity: initial !important;
 	pointer-events: auto !important;
 	transition: var(--in-transition) !important;
-}
-/* url bar border*/
-#urlbar-input-container {
-  border: 0.125em solid rgba(128,128,128,0.25) !important;
-  border-radius: 6px !important;
-  background-color: transparent !important;
+  transition-delay: 50ms !important;
 }
 
+/*TRANSITION*/
+:root { --in-transition: font-size .2s, padding .2s, margin .2s, max-width .2s, opacity .2s .15s;
+        --out-transition: font-size .2s, padding .2s, margin .2s, max-width .2s, opacity .07s; }
+
+/* url bar border*/
+#urlbar-input-container {
+  border: 0.15em solid rgba(128,128,128,0.25) !important; /*100% scale untested*/
+  border-radius: 4px !important; }
+
 /*PERSONAL TOOLBAR*/
-/*Remove Background color*/
+/*Remove Background color*/ /*currently not applied to autohide */
 #PersonalToolbar {background-color: transparent !important;}
+
+/*TAB BAR*/
+/*pre-tabs / post-tabs spacers*/
+.titlebar-spacer[type="pre-tabs"] { display: none !important; }
+/*alltabs button*/
+toolbarbutton#alltabs-button {
+  display: none !important;
+}
+/*?BUG? some-fucking-how enable *hide button + page action menu* 
+(l32) fucking affect alltabs content for some fucknig reason so i had to disable it*/
 /* For native-pixel resolution only */
-#tabbrowser-tabs tab[selected]{	font-weight: bold; }
+#tabbrowser-tabs tab[selected] {	font-weight: bold; }
 
 /*Hide close button on hover*/
 .tab-close-button {
+  
   display: none !important;
-  /*
   visibility: collapse !important;
-	opacity:0 !important;
+	opacity: 0 !important;
 	margin-left: -16px !important;
+  /*
 	transition: all 0.25s ease 0s !important;
   */
 }
@@ -83,86 +81,78 @@ toolbarspring, [id^="wrapper-customizableui-special-spring"] {
   display: block !important;
 	opacity: 1 !important;
 	margin-left: 0px !important;
-  transition: all 0.05s ease 0s !important;
-}
+  transition: all 0.05s ease 0s !important; }
 .tab-close-button {
 -moz-box-ordinal-group: 1;
     display: -moz-box !important;
     position: relative;
     margin-right: 0px !important;
     z-index: -1;
-    visibility: hidden;
-}
+    visibility: hidden; }
 
 /* Narrow the gap between the favicon and the title */
+/*
 .tab-icon-image:not([pinned]) { margin-inline-end: 1px !important; }
 /*Tabs (unselected) for oneliner*/
-tab:not([pinned]) { min-width: 5.25vw !important; max-width: }
+tab:not([pinned]) { min-width: 6vw !important; }
 /* Tabs (selected) for oneliner*/
 tab[selected=true]:not([pinned]) { min-width: 10vw !important; }
+/*tabs scroll button*/
+  toolbarbutton#scrollbutton-up, toolbarbutton#scrollbutton-down {
+    display: none !important;
+  }
 
 /* ONE LINER MOD */
 /* Move tabs % to right */
 #TabsToolbar {
-	margin-left: 50vw !important;
+  margin-top: -0.5px !important; /*attempt to comply with rgb mod*/
+  margin-left: 50vw !important;
 	pointer-events: auto !important;
 	background: none !important;
-	transition: all 250ms !important;
-}
+	transition: all 250ms !important; }
 /* Move navigation % to left and move to top line */
 #nav-bar {
 	margin-right: 50vw !important;
-	margin-top: -3.5em !important;
-	background: none !important;
-	pointer-events: auto !important;
+	margin-top: -3.025em !important;
+  background: none !important;
+  pointer-events: auto !important;
 	transition: all 250ms ease-out !important;
-	z-index: 2;
-}
+	z-index: 2 !important; }
+
 
 /* COLOR MOD */
 /*status panel*/
 #statuspanel #statuspanel-label,
 statuspanel .statuspanel-label {
-  background-color: rgba(0, 0, 0, 0.75)!important;
+  background-color: rgba(0, 0, 0, 0.80)!important;
   color: white !important;
-/*border: 1px rgba(0, 0, 0, 0.75) !important;*/
-	border-radius: 0px 6px 0px 0px !important;
+  border: 0px !important;
+	border-radius: 0px 0.5em 0px 0px !important;
 }
 
-/*ALERT*/
-@-moz-document url('chrome://global/content/alerts/alert.xhtml') {
-    #alertBox {
-        border-color: rgba(107,107,107,.3) !important;
-        background: /*rgba(33,33,33,.9)*/ url("chrome://global/skin/media/imagedoc-darknoise.png") !important;
-        color: rgba(215,215,215,.9) !important;
-        backdrop-filter: blur(32px) !important;
-    }
-    #alertSettings {
-        -moz-context-properties: fill, fill-opacity !important;
-        padding: 3px !important;
-        margin: 0px 2px -3px 0px !important;
-        color: inherit !important;
-        border-radius: 2px !important;
-        transform: scale(0.91, 0.91) !important;
-    }
-    #alertSettings:hover,
-    #alertSettings[open] {
-        background-color: rgba(215, 215, 215, 0.1) !important;
-    }
+/*BOOKMARK BAR - CONTEXT*/
+#PlacesToolbar menupopup > menuitem, 
+#PlacesToolbar menupopup > menu {
+  padding: 0px !important;
 }
-
 /***COMPACT MODE***/
-@media only screen and (max-width: 67em){
-	#nav-bar, #TabsToolbar {
+@media only screen and (max-width: 67em) { /*em is x2 of font size (relative to display scaling)*/
+  /*try to reset oneliner to default position*/
+	#TabsToolbar, #TabsToolbar tabs {
     margin: initial !important;
   }
+  #TabsToolbar { margin-top: 1px !important; }
 	#nav-bar{
+    padding: initial !important;
     width: initial !important;
     margin: initial !important;
+    margin-top: 2px !important; /*complied with rgb mod*/
+    z-index: initial !important;
   }
 	/*changing tabs size when the browser is smol*/
 	tab:not([pinned]) { min-width: 12vw !important; }		
-	tab[selected=true]:not([pinned]) {min-width: 20vw !important;}
+	tab[selected=true]:not([pinned]) {min-width: 24vw !important;}
+
 	/*Show close button on hover*/
   /*
   .tab-close-button {
@@ -186,4 +176,5 @@ statuspanel .statuspanel-label {
     z-index: -1;
     visibility: hidden;
   }
+  */
 }
