@@ -1,7 +1,7 @@
 # Celschrome - Cel's userchrome.css  
 
 ![Main](assets/showcase/title-light.png#gh-light-mode-only)
-![Main2](assets/showcase/title-dark.png#gh-dark-mode-only)  
+![Main2](assets/showcase/title-dark2.png#gh-dark-mode-only)  
 ![Window](assets/showcase/window-1.png)
 What is [userchrome.css?](https://www.userchrome.org/)
 
