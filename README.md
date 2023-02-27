@@ -1,4 +1,4 @@
-# Celschrome - Cel's userchrome.css  
+# Celschrome - Cel's userchrome.css  `110.0`
 
 ![Main](assets/showcase/title-light.png#gh-light-mode-only)
 ![Main2](assets/showcase/title-dark2.png#gh-dark-mode-only)  
@@ -39,7 +39,7 @@ This css is inspired from most userchrome.css tweaks repos, including the one-li
 
 ---
 
-## Prerequisite  
+## Requirements
 
 Go to `about:config` in Firefox and do the following :  
 
