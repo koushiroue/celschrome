@@ -2,7 +2,8 @@
 
 ![Main](assets/showcase/title-light.png#gh-light-mode-only)
 ![Main2](assets/showcase/title-dark2.png#gh-dark-mode-only)  
-![Window](assets/showcase/window-1.png)
+![Window](assets/lightwindow.gif#gh-light-mode-only)
+![Window2](assets/darkwindow.gif#gh-dark-mode-only)
 What is [userchrome.css?](https://www.userchrome.org/)
 
 ## Features

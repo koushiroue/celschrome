@@ -1,5 +1,8 @@
 Version History
 
+v0.29
+- removed alert css
+
 v0.28
 - added some onebar (github link) urlbar features.
 - changed focused tabs to 20vw.
