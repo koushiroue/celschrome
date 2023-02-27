@@ -5,7 +5,7 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/darkwindow.gif" width="300">
-  <img style="float: right;"  src="assets/lightwindow.gif" width="500">
+  <img style="display: block; margin: 0 auto"  src="assets/lightwindow.gif" width="500">
 </picture>
 
 What is [userchrome.css?](https://www.userchrome.org/)
