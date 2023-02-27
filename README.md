@@ -3,10 +3,12 @@
 ![Main](assets/showcase/title-light.png#gh-light-mode-only)
 ![Main2](assets/showcase/title-dark2.png#gh-dark-mode-only)  
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/darkwindow.gif" width="300">
-  <img style="display: block; margin: 0 auto"  src="assets/lightwindow.gif" width="500">
-</picture>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/darkwindow.gif" width="300">
+    <img src="assets/lightwindow.gif" width="500">
+  </picture>
+</p>
 
 What is [userchrome.css?](https://www.userchrome.org/)
 
@@ -20,7 +22,7 @@ This css is inspired from most userchrome.css tweaks repos, including the one-li
 
 ### Overall Tweaks
 
-- Colorless Theme. (uses the color from Windows Personalization Setting)
+- ~~Colorless Theme. (uses the color from Windows Personalization Setting)~~ `borked in Windows 11`
 - ~~*RGB*~~ ~~`deprecated since Firefox v69`~~ `in working in v100+ with FirefoxCssHacks`
 
 ### Navigation Tweaks  
