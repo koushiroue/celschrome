@@ -5,7 +5,7 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/darkwindow.gif" width="300">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/darkwindow.gif" width="500">
     <img src="assets/lightwindow.gif" width="500">
   </picture>
 </p>
