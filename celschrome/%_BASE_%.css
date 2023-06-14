@@ -1,180 +1,161 @@
 /*CELSCHROME
-v0.29
-- removed alert css
+v0.30
+- fixed the pesky 1px margin top when browser isnt maximized
+- removed legacy stuff
+- more stuff to test
+- return nav bar background to default
+- disable one liner mod transformation
+- add more firefoxcsshacks css
 */
 
 /*TITLEBAR*/
 /* compact min/max/close button */
-.titlebar-button { padding: 0.75vw !important; }
+.titlebar-button { padding: 0px 1vw !important; }
+
+/*MENUBAR*/
+menubar {padding: 8px !important;}
 
 /*NAVIGATION TOOLBAR*/
-/* Move hamburger menu to the left */
-/*
-#PanelUI-button, #customization-panel-container,
-#customization-panelWrapper .panel-arrow { 
-  -moz-box-ordinal-group: 0 !important; }
+#nav-bar {
+  padding: initial !important;
+  margin: initial !important;
+  margin-top: 2px !important;
+  margin-bottom: 0px !important;
+}
 /* Hide flexible spaces */
 toolbarspring, [id^="wrapper-customizableui-special-spring"] {
   display: none !important; }
-/* Remove Page Actions Menu & Back/Forward Button */
-#forward-button, #back-button {display: none !important;}
-
-/* Hide buttons and Page Action Menu */
+/*Edge behavior of showing navigation button*/
+#forward-button[disabled] { display: none !important; }
+/* Autohideide buttons and Page Action Menu *//*taking in account there only 5 item on right side*/
+/* Show on hover or focus */ /*RIP 2018 - 2023 LMAO*/
+/*
 #nav-bar toolbarbutton {
-	margin-left: -35px !important; /*taking in account there only 5 item on right side*/
-  padding: 0 !important;
+	margin-left: -32px !important; 
 	opacity: 0 !important;
-	pointer-events: none !important;
-	transition: var(--out-transition) !important;
-}
-/* Show on hover or focus */ /*FIXED 2018 - 2023 LMAO*/
+	transition: all 150ms !important; 
+  transition-delay: 135ms !important;}
 #nav-bar:hover toolbarbutton { 
   visibility: visible;
   margin: initial !important;
-  padding: initial !important;
 	opacity: initial !important;
 	pointer-events: auto !important;
-	transition: var(--in-transition) !important;
-  transition-delay: 50ms !important;
-}
+	transition: all 150ms !important; 
+  transition-delay: 100ms !important;}
 
-/*TRANSITION*/
-:root { --in-transition: font-size .2s, padding .2s, margin .2s, max-width .2s, opacity .2s .15s;
-        --out-transition: font-size .2s, padding .2s, margin .2s, max-width .2s, opacity .07s; }
 
-/* url bar border*/
-#urlbar-input-container {
-  border: 0.15em solid rgba(128,128,128,0.25) !important; /*100% scale untested*/
-  border-radius: 4px !important; }
+/*URL BAR*/
+/*
+#urlbar-container { min-width: 192px !important; }
+/* https */
+#identity-box.verifiedDomain > #identity-icon-box { color: rgba(0,150,0,1) !important;}
+/* http: and potentially some other insecure connections like ftp: */
+#identity-box.certErrorPage, #identity-box.notSecure{ color: rgba(200,0,0,1) !important;}
+/* Mixed content including neterror */
+#identity-box.unknownIdentity{ color: rgba(250,150,50,1) !important;}
+/* Internal about: and chrome:// urls (includes reader-view) */
+#identity-box.chromeUI{ color: rgba(224,120,0,1) !important; }
+
+/* Hide container label in urlbar */
+#userContext-label{ display: none }
+
 
 /*PERSONAL TOOLBAR*/
-/*Remove Background color*/ /*currently not applied to autohide */
+/*Remove Background color, currently not applied to autohide */
+/*
 #PersonalToolbar {background-color: transparent !important;}
+/*bookmark context*/
+#PlacesToolbar menupopup > menuitem, 
+#PlacesToolbar menupopup > menu { padding: 0px !important; }
 
 /*TAB BAR*/
+#TabsToolbar {
+
+  margin-top: 0px !important; 
+  margin: initial !important;
+}
+/*https://www.reddit.com/r/FirefoxCSS/comments/a6jc7q/help_remove_top_window_padding/*/
+:root:not([sizemode="maximized"]){ margin-top: 1px !important }
+/*Tabs (unselected) for oneliner*/
+tab:not([pinned]) { min-width: 32px !important; }
+/* Tabs (selected) for oneliner*/
+tab[selected=true]:not([pinned]) { min-width: 20vw !important; }
 /*pre-tabs / post-tabs spacers*/
 .titlebar-spacer[type="pre-tabs"] { display: none !important; }
 /*alltabs button*/
-toolbarbutton#alltabs-button {
-  display: none !important;
-}
-/*?BUG? some-fucking-how enable *hide button + page action menu* 
-(l32) fucking affect alltabs content for some fucknig reason so i had to disable it*/
+/*
+toolbarbutton #alltabs-button, [id="alltabs-button"] { display: none !important; }
 /* For native-pixel resolution only */
-#tabbrowser-tabs tab[selected] {	font-weight: bold; }
+#tabbrowser-tabs tab[selected] { font-weight: bold; }
 
-/*Hide close button on hover*/
-.tab-close-button {
-  
-  display: none !important;
-  visibility: collapse !important;
-	opacity: 0 !important;
-	margin-left: -16px !important;
-  /*
-	transition: all 0.25s ease 0s !important;
-  */
-}
-/*Show tab close button*/
+
+
+/* Always show tab close button on hover and never otherwise */
 /*
-.tabbrowser-tab:not([pinned]):hover .tab-close-button {
-  visibility: visible !important;
-  display: block !important;
-	opacity: 1 !important;
-	margin-left: 0px !important;
-  transition: all 0.05s ease 0s !important; }
-.tab-close-button {
--moz-box-ordinal-group: 1;
-    display: -moz-box !important;
-    position: relative;
-    margin-right: 0px !important;
-    z-index: -1;
-    visibility: hidden; }
+.tabbrowser-tab .tab-close-button{ display:none; }
+.tabbrowser-tab[selected]:not([pinned]):hover .tab-close-button{ display: flex !important; }
 
-/* Narrow the gap between the favicon and the title */
+/*CONTAINER*/
 /*
-.tab-icon-image:not([pinned]) { margin-inline-end: 1px !important; }
-/*Tabs (unselected) for oneliner*/
-tab:not([pinned]) { min-width: 6vw !important; }
-/* Tabs (selected) for oneliner*/
-tab[selected=true]:not([pinned]) { min-width: 10vw !important; }
-/*tabs scroll button*/
-  toolbarbutton#scrollbutton-up, toolbarbutton#scrollbutton-down {
-    display: none !important;
-  }
+.tabbrowser-tab[selected] > .tab-stack > .tab-background > .tab-context-line {
+  background-color: var(--identity-icon-color) !important;
+  margin-inline: 0px !important;
+  height: 2px !important;
+  border-radius: var(--tab-border-radius) var(--tab-border-radius) 0px 0px !important; }
+.tabbrowser-tab > .tab-stack > .tab-background > .tab-context-line {
+  margin-inline: 0px !important; }
 
-/* ONE LINER MOD */
-/* Move tabs % to right */
-#TabsToolbar {
-  margin-top: -0.5px !important; /*attempt to comply with rgb mod*/
-  margin-left: 50vw !important;
-	pointer-events: auto !important;
-	background: none !important;
-	transition: all 250ms !important; }
-/* Move navigation % to left and move to top line */
-#nav-bar {
-	margin-right: 50vw !important;
-	margin-top: -3.025em !important;
-  background: none !important;
-  pointer-events: auto !important;
-	transition: all 250ms ease-out !important;
-	z-index: 2 !important; }
+/*EXTENSION v111*/
+/*
+#unified-extensions-view{--uei-icon-size: 16px; }
+.unified-extensions-item-menu-button.subviewbutton{padding: 2px !important;}
+#unified-extensions-view > vbox > vbox > .unified-extensions-item{padding-block: 0px !important; }
+.unified-extensions-item-menu-button{ margin-inline-end: 0 !important;}
+.unified-extensions-list .unified-extensions-item-menu-button{margin-inline-end: 8px !important; }
 
-
-/* COLOR MOD */
-/*status panel*/
+/*STATUS PANEL*/
 #statuspanel #statuspanel-label,
-statuspanel .statuspanel-label {
-  background-color: rgba(0, 0, 0, 0.80)!important;
-  color: white !important;
-  border: 0px !important;
-	border-radius: 0px 0.5em 0px 0px !important;
-}
+statuspanel .statuspanel-label { border-radius: 0px 0.5em 0px 0px !important; }
 
-/*BOOKMARK BAR - CONTEXT*/
-#PlacesToolbar menupopup > menuitem, 
-#PlacesToolbar menupopup > menu {
-  padding: 0px !important;
-}
+/*ONE LINER MOD*//* Move tabs % to right */
+/*+++++++++++++*/
+/*
+#TabsToolbar {
+  margin-top: 0px !important; 
+	pointer-events: auto !important;
+  padding-left: 55vw !important; }
+#TabsToolbar tabs { margin-left: 2px !important; } /*comply with rgb mod*/
+/* Move navigation % to left and move to top line */
+/*[-3.025] (refer above)*/
+/*
+#nav-bar {
+	margin-right: 45vw !important;
+	margin-top: -3em !important; 
+  pointer-events: auto !important;
+	z-index: 2 !important;   }
+/*+++++++++++++*/
+
+
 /***COMPACT MODE***/
-@media only screen and (max-width: 67em) { /*em is x2 of font size (relative to display scaling)*/
+  /*em is x2 of font size (relative to display scaling)*/
   /*try to reset oneliner to default position*/
-	#TabsToolbar, #TabsToolbar tabs {
-    margin: initial !important;
-  }
-  #TabsToolbar { margin-top: 1px !important; }
-	#nav-bar{
+/*
+@media only screen and (max-width: 55em) { 
+	#TabsToolbar, #TabsToolbar tabs {margin: initial !important; }
+  #TabsToolbar { 
+    padding-left: 0vw !important;
+    margin-top: 0px !important; }
+	#nav-bar {
     padding: initial !important;
     width: initial !important;
     margin: initial !important;
-    margin-top: 2px !important; /*complied with rgb mod*/
-    z-index: initial !important;
-  }
-	/*changing tabs size when the browser is smol*/
-	tab:not([pinned]) { min-width: 12vw !important; }		
-	tab[selected=true]:not([pinned]) {min-width: 24vw !important;}
-
-	/*Show close button on hover*/
-  /*
-  .tab-close-button {
-    visibility: collapse !important;
-	  opacity:0 !important;
-	  margin-left: -16px !important;
-	  transition: all 0.25s ease 0s !important;
-  }
-  .tabbrowser-tab:not([pinned]):hover .tab-close-button {
-    visibility: visible !important;
-    display: block !important;
-	  opacity: 1 !important;
-	  margin-left: 0px !important;
-	  transition: all 0.05s ease 0s !important;
-  }
-  .tab-close-button {
-    -moz-box-ordinal-group: 1;
-    display: -moz-box !important;
-    position: relative;
-    margin-right: 0px !important;
-    z-index: -1;
-    visibility: hidden;
-  }
-  */
+    margin-top: 2px !important;
+    margin-bottom: 0px !important;
+    z-index: initial !important;   }
+  /*pre-tabs / post-tabs spacers*/
+/*
+  .titlebar-spacer[type="pre-tabs"] { display: initial !important; }
+	/*
+	tab:not([pinned]) { min-width: 32px !important; }		
+	tab[selected=true]:not([pinned]) {min-width: 20vw !important;}
 }

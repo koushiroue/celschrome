@@ -2,23 +2,38 @@
 - Main Configuration of the Address, Tab, Nav Bar
 - Compact Mode
 */
-
 @import url(./celschrome/%_BASE_%.css);
-
-
-/*@import url(./celschrome/%_CONTEXT_%.css);*/
 
 /*importing megabar tweak
 - Address Megabar
-
 */
-
 @import url(./celschrome/%_MEGABAR_%.css);
+/*FirefoxCSSHacks*/
+/*URL BAR*/
+/*
+@import url(./imported/firefox-csshacks/chrome/urlbar_info_icons_on_hover.css);
+@import url(./imported/firefox-csshacks/chrome/page_action_buttons_on_urlbar_hover.css);
+
+
+/*TAB MOD*/
+/*
+@import url(./imported/firefox-csshacks/chrome/navbar_tabs_oneliner.css);
+
+
+/*RGB TAB MOD*/
+/*compact_proton.css requirement for non_floating_sharp_tabs.css*/
+@import url(./imported/firefox-csshacks/chrome/compact_proton.css);
+/*non_floating_sharp_tabs.css requirement for tabs_animated_gradient_border.css*/
+@import url(./imported/firefox-csshacks/chrome/non_floating_sharp_tabs.css);
+
+@import url(./imported/firefox-csshacks/chrome/tabs_animated_gradient_border.css);
 
 /*AUTOHIDE PERSONAL BOOKMARK BAR*/
 /*https://github.com/MrOtherGuy/firefox-csshacks*/
 @import url(./imported/firefox-csshacks/chrome/autohide_bookmarks_toolbar.css);
+/*
+@import url(./imported/firefox-csshacks/chrome/autohide_toolbox.css);
 
-/*RGB MOD*/
-@import url(./imported/firefox-csshacks/chrome/non_floating_sharp_tabs.css);
-@import url(./imported/firefox-csshacks/chrome/tabs_animated_gradient_border.css);
+/*STATUS BAR*/
+/*
+@import url(./imported/firefox-csshacks/chrome/status_inside_urlbar_v2.css);
