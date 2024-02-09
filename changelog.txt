@@ -1,5 +1,21 @@
 Version History
 
+v0.32
+-normalization
+-require about:config > compactmode.true
+
+v0.31
+-updated firefox-css repo
+-change compact to 60em
+
+v0.30
+- fixed the pesky 1px margin top when browser isnt maximized
+- removed legacy stuff
+- more stuff to test
+- return nav bar background to default
+- disable one liner mod transformation
+- add more firefoxcsshacks css
+
 v0.29
 - removed alert css
 
