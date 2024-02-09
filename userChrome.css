@@ -3,29 +3,29 @@
 - Compact Mode
 */
 @import url(./celschrome/%_BASE_%.css);
-
 /*importing megabar tweak
 - Address Megabar
 */
 @import url(./celschrome/%_MEGABAR_%.css);
+
+
 /*FirefoxCSSHacks*/
 /*URL BAR*/
 /*
 @import url(./imported/firefox-csshacks/chrome/urlbar_info_icons_on_hover.css);
 @import url(./imported/firefox-csshacks/chrome/page_action_buttons_on_urlbar_hover.css);
 
-
 /*TAB MOD*/
 /*
 @import url(./imported/firefox-csshacks/chrome/navbar_tabs_oneliner.css);
-
+@import url(./imported/minified/userChrome.min.css);
+@import url(./imported/minified/tabCenterReborn.min.css);*/
 
 /*RGB TAB MOD*/
-/*compact_proton.css requirement for non_floating_sharp_tabs.css*/
+/*compact_proton.css requirement for non_floating_sharp_tabs.css
 @import url(./imported/firefox-csshacks/chrome/compact_proton.css);
-/*non_floating_sharp_tabs.css requirement for tabs_animated_gradient_border.css*/
+non_floating_sharp_tabs.css requirement for tabs_animated_gradient_border.css
 @import url(./imported/firefox-csshacks/chrome/non_floating_sharp_tabs.css);
-
 @import url(./imported/firefox-csshacks/chrome/tabs_animated_gradient_border.css);
 
 /*AUTOHIDE PERSONAL BOOKMARK BAR*/

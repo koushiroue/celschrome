@@ -1,4 +1,12 @@
 /*CELSCHROME
+v0.32
+-normalization
+-require about:config > compactmode.true
+
+v0.31
+-updated firefox-css repo
+-change compact to 60em
+
 v0.30
 - fixed the pesky 1px margin top when browser isnt maximized
 - removed legacy stuff
@@ -16,6 +24,7 @@ v0.30
 menubar {padding: 8px !important;}
 
 /*NAVIGATION TOOLBAR*/
+
 #nav-bar {
   padding: initial !important;
   margin: initial !important;
@@ -70,16 +79,15 @@ toolbarspring, [id^="wrapper-customizableui-special-spring"] {
 
 /*TAB BAR*/
 #TabsToolbar {
-
   margin-top: 0px !important; 
   margin: initial !important;
 }
 /*https://www.reddit.com/r/FirefoxCSS/comments/a6jc7q/help_remove_top_window_padding/*/
 :root:not([sizemode="maximized"]){ margin-top: 1px !important }
 /*Tabs (unselected) for oneliner*/
-tab:not([pinned]) { min-width: 32px !important; }
+tab:not([pinned]) { min-width: 36px !important; }
 /* Tabs (selected) for oneliner*/
-tab[selected=true]:not([pinned]) { min-width: 20vw !important; }
+tab[selected=true]:not([pinned]) { min-width: 12em !important; }
 /*pre-tabs / post-tabs spacers*/
 .titlebar-spacer[type="pre-tabs"] { display: none !important; }
 /*alltabs button*/
@@ -91,7 +99,7 @@ toolbarbutton #alltabs-button, [id="alltabs-button"] { display: none !important;
 
 
 /* Always show tab close button on hover and never otherwise */
-/*
+
 .tabbrowser-tab .tab-close-button{ display:none; }
 .tabbrowser-tab[selected]:not([pinned]):hover .tab-close-button{ display: flex !important; }
 
@@ -114,23 +122,24 @@ toolbarbutton #alltabs-button, [id="alltabs-button"] { display: none !important;
 .unified-extensions-list .unified-extensions-item-menu-button{margin-inline-end: 8px !important; }
 
 /*STATUS PANEL*/
+/*
 #statuspanel #statuspanel-label,
 statuspanel .statuspanel-label { border-radius: 0px 0.5em 0px 0px !important; }
 
 /*ONE LINER MOD*//* Move tabs % to right */
 /*+++++++++++++*/
-/*
+
 #TabsToolbar {
-  margin-top: 0px !important; 
+  margin-top: -2px !important; /*(-2 for latest)*/
 	pointer-events: auto !important;
-  padding-left: 55vw !important; }
+  padding-left: 45vw !important; }
 #TabsToolbar tabs { margin-left: 2px !important; } /*comply with rgb mod*/
 /* Move navigation % to left and move to top line */
 /*[-3.025] (refer above)*/
-/*
+
 #nav-bar {
-	margin-right: 45vw !important;
-	margin-top: -3em !important; 
+	margin-right: 55vw !important;
+	margin-top: -3em !important; /*(-3.25 for proton/ -3.5 for latest / -3 for compact)*/
   pointer-events: auto !important;
 	z-index: 2 !important;   }
 /*+++++++++++++*/
@@ -139,23 +148,22 @@ statuspanel .statuspanel-label { border-radius: 0px 0.5em 0px 0px !important; }
 /***COMPACT MODE***/
   /*em is x2 of font size (relative to display scaling)*/
   /*try to reset oneliner to default position*/
-/*
-@media only screen and (max-width: 55em) { 
+
+@media only screen and (max-width: 70em) { 
 	#TabsToolbar, #TabsToolbar tabs {margin: initial !important; }
   #TabsToolbar { 
     padding-left: 0vw !important;
-    margin-top: 0px !important; }
+    margin-top: -2px !important; }
 	#nav-bar {
     padding: initial !important;
     width: initial !important;
     margin: initial !important;
-    margin-top: 2px !important;
+    margin-top: -2px !important;
     margin-bottom: 0px !important;
     z-index: initial !important;   }
   /*pre-tabs / post-tabs spacers*/
-/*
   .titlebar-spacer[type="pre-tabs"] { display: initial !important; }
-	/*
-	tab:not([pinned]) { min-width: 32px !important; }		
+
+	
 	tab[selected=true]:not([pinned]) {min-width: 20vw !important;}
 }
