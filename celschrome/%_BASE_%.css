@@ -1,11 +1,17 @@
 /*CELSCHROME
+v0.33
+-focus support for vertical tabs
+
+
 v0.32
 -normalization
 -require about:config > compactmode.true
 
+
 v0.31
 -updated firefox-css repo
 -change compact to 60em
+
 
 v0.30
 - fixed the pesky 1px margin top when browser isnt maximized
@@ -36,28 +42,33 @@ toolbarspring, [id^="wrapper-customizableui-special-spring"] {
   display: none !important; }
 /*Edge behavior of showing navigation button*/
 #forward-button[disabled] { display: none !important; }
-/* Autohideide buttons and Page Action Menu *//*taking in account there only 5 item on right side*/
+#back-button[disabled] { display: none !important; }
+
+/* Autohide buttons and Page Action Menu */
+/*taking in account there only 5 item on right side*/
 /* Show on hover or focus */ /*RIP 2018 - 2023 LMAO*/
 /*
+@media only screen and (min-width: 64em){
 #nav-bar toolbarbutton {
 	margin-left: -32px !important; 
 	opacity: 0 !important;
-	transition: all 150ms !important; 
-  transition-delay: 135ms !important;}
+	transition: ease 100ms !important;}
 #nav-bar:hover toolbarbutton { 
   visibility: visible;
   margin: initial !important;
 	opacity: initial !important;
 	pointer-events: auto !important;
-	transition: all 150ms !important; 
-  transition-delay: 100ms !important;}
-
+	transition: ease 100ms !important; 
+  transition-delay: 500ms !important;
+  z-index: 1;
+  }
+}
 
 /*URL BAR*/
 /*
 #urlbar-container { min-width: 192px !important; }
 /* https */
-#identity-box.verifiedDomain > #identity-icon-box { color: rgba(0,150,0,1) !important;}
+#identity-box.verifiedDomain > #identity-icon-box { color: rgba(0,128,0,1) !important;}
 /* http: and potentially some other insecure connections like ftp: */
 #identity-box.certErrorPage, #identity-box.notSecure{ color: rgba(200,0,0,1) !important;}
 /* Mixed content including neterror */
@@ -66,6 +77,7 @@ toolbarspring, [id^="wrapper-customizableui-special-spring"] {
 #identity-box.chromeUI{ color: rgba(224,120,0,1) !important; }
 
 /* Hide container label in urlbar */
+/*
 #userContext-label{ display: none }
 
 
@@ -73,35 +85,62 @@ toolbarspring, [id^="wrapper-customizableui-special-spring"] {
 /*Remove Background color, currently not applied to autohide */
 /*
 #PersonalToolbar {background-color: transparent !important;}
-/*bookmark context*/
+/*bookmark toolbar autohide (courtesy of floorp)*/
 #PlacesToolbar menupopup > menuitem, 
 #PlacesToolbar menupopup > menu { padding: 0px !important; }
+#PersonalToolbar {
+    position: relative !important;
+    transition: ease 100ms !important;
+    min-height: 0em !important;
+    max-height: 0em !important;
+ }
+  #navigator-toolbox:hover > #PersonalToolbar {
+    transition: ease 200ms !important;
+    transition-delay: 500ms !important;
+    min-height: 28px !important;
+    max-height: 3em !important;
+    z-index: 1;
+ }
 
 /*TAB BAR*/
+/*
 #TabsToolbar {
   margin-top: 0px !important; 
   margin: initial !important;
 }
 /*https://www.reddit.com/r/FirefoxCSS/comments/a6jc7q/help_remove_top_window_padding/*/
+/*
 :root:not([sizemode="maximized"]){ margin-top: 1px !important }
 /*Tabs (unselected) for oneliner*/
-tab:not([pinned]) { min-width: 36px !important; }
+/*
+tab:not([pinned]) { min-width: 42px !important; }
+tab .tab-content{margin: 2px !important;}
 /* Tabs (selected) for oneliner*/
-tab[selected=true]:not([pinned]) { min-width: 12em !important; }
+/*
+tab[selected=true]:not([pinned]) { min-width: 10em !important; }
 /*pre-tabs / post-tabs spacers*/
+/*
 .titlebar-spacer[type="pre-tabs"] { display: none !important; }
 /*alltabs button*/
 /*
 toolbarbutton #alltabs-button, [id="alltabs-button"] { display: none !important; }
 /* For native-pixel resolution only */
+/*
 #tabbrowser-tabs tab[selected] { font-weight: bold; }
 
-
-
 /* Always show tab close button on hover and never otherwise */
-
+/*
 .tabbrowser-tab .tab-close-button{ display:none; }
 .tabbrowser-tab[selected]:not([pinned]):hover .tab-close-button{ display: flex !important; }
+
+/* show favicon for tabs without favicons */
+/*
+.tabbrowser-tab:not([pinned]) .tab-icon-image:not([src]) {
+  display: inline !important;
+}
+.tabbrowser-tab:not([pinned])[busy] .tab-icon-image {
+  display: none !important;
+}
 
 /*CONTAINER*/
 /*
@@ -128,18 +167,18 @@ statuspanel .statuspanel-label { border-radius: 0px 0.5em 0px 0px !important; }
 
 /*ONE LINER MOD*//* Move tabs % to right */
 /*+++++++++++++*/
-
+/*
 #TabsToolbar {
-  margin-top: -2px !important; /*(-2 for latest)*/
+  margin-top: -2px !important; /*(-2 for latest / -1 for compact)
 	pointer-events: auto !important;
-  padding-left: 45vw !important; }
+  padding-left: 51vw !important; }
 #TabsToolbar tabs { margin-left: 2px !important; } /*comply with rgb mod*/
 /* Move navigation % to left and move to top line */
 /*[-3.025] (refer above)*/
-
+/*
 #nav-bar {
-	margin-right: 55vw !important;
-	margin-top: -3em !important; /*(-3.25 for proton/ -3.5 for latest / -3 for compact)*/
+	margin-right: 49vw !important;
+	margin-top: -40px !important; /*(-3.5em for latest / -40 /-36px for compact)
   pointer-events: auto !important;
 	z-index: 2 !important;   }
 /*+++++++++++++*/
@@ -148,8 +187,8 @@ statuspanel .statuspanel-label { border-radius: 0px 0.5em 0px 0px !important; }
 /***COMPACT MODE***/
   /*em is x2 of font size (relative to display scaling)*/
   /*try to reset oneliner to default position*/
-
-@media only screen and (max-width: 70em) { 
+/*
+@media only screen and (max-width: 64em) { 
 	#TabsToolbar, #TabsToolbar tabs {margin: initial !important; }
   #TabsToolbar { 
     padding-left: 0vw !important;
@@ -161,7 +200,7 @@ statuspanel .statuspanel-label { border-radius: 0px 0.5em 0px 0px !important; }
     margin-top: -2px !important;
     margin-bottom: 0px !important;
     z-index: initial !important;   }
-  /*pre-tabs / post-tabs spacers*/
+  /*pre-tabs / post-tabs spacers
   .titlebar-spacer[type="pre-tabs"] { display: initial !important; }
 
 	
