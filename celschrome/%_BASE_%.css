@@ -1,6 +1,11 @@
 /*CELSCHROME
+v0.34
+-pwa fix
+
+
 v0.33
 -focus support for vertical tabs
+-disable tab css
 
 
 v0.32
@@ -22,15 +27,24 @@ v0.30
 - add more firefoxcsshacks css
 */
 
+
+/* PWA FIX*/
+:root { min-width: 320px !important; }
+html#main-window[taskbartab] toolbar#nav-bar .urlbar-container {
+display: none !important;  
+}
+
+
 /*TITLEBAR*/
 /* compact min/max/close button */
-.titlebar-button { padding: 0px 1vw !important; }
+/*.titlebar-button { padding: 0px 1vw !important; }
 
 /*MENUBAR*/
+/*
 menubar {padding: 8px !important;}
 
 /*NAVIGATION TOOLBAR*/
-
+/*
 #nav-bar {
   padding: initial !important;
   margin: initial !important;
@@ -38,6 +52,7 @@ menubar {padding: 8px !important;}
   margin-bottom: 0px !important;
 }
 /* Hide flexible spaces */
+/*
 toolbarspring, [id^="wrapper-customizableui-special-spring"] {
   display: none !important; }
 /*Edge behavior of showing navigation button*/
@@ -46,20 +61,22 @@ toolbarspring, [id^="wrapper-customizableui-special-spring"] {
 
 /* Autohide buttons and Page Action Menu */
 /*taking in account there only 5 item on right side*/
-/* Show on hover or focus */ /*RIP 2018 - 2023 LMAO*/
+/* Show on hover or focus */
 /*
 @media only screen and (min-width: 64em){
 #nav-bar toolbarbutton {
 	margin-left: -32px !important; 
 	opacity: 0 !important;
-	transition: ease 100ms !important;}
+	transition: ease 100ms !important;
+  transition-delay: 100ms !important;
+  }
 #nav-bar:hover toolbarbutton { 
   visibility: visible;
   margin: initial !important;
 	opacity: initial !important;
 	pointer-events: auto !important;
 	transition: ease 100ms !important; 
-  transition-delay: 500ms !important;
+  transition-delay: 100ms !important;
   z-index: 1;
   }
 }
@@ -67,14 +84,7 @@ toolbarspring, [id^="wrapper-customizableui-special-spring"] {
 /*URL BAR*/
 /*
 #urlbar-container { min-width: 192px !important; }
-/* https */
-#identity-box.verifiedDomain > #identity-icon-box { color: rgba(0,128,0,1) !important;}
-/* http: and potentially some other insecure connections like ftp: */
-#identity-box.certErrorPage, #identity-box.notSecure{ color: rgba(200,0,0,1) !important;}
-/* Mixed content including neterror */
-#identity-box.unknownIdentity{ color: rgba(250,150,50,1) !important;}
-/* Internal about: and chrome:// urls (includes reader-view) */
-#identity-box.chromeUI{ color: rgba(224,120,0,1) !important; }
+
 
 /* Hide container label in urlbar */
 /*
@@ -86,21 +96,33 @@ toolbarspring, [id^="wrapper-customizableui-special-spring"] {
 /*
 #PersonalToolbar {background-color: transparent !important;}
 /*bookmark toolbar autohide (courtesy of floorp)*/
+/*
 #PlacesToolbar menupopup > menuitem, 
 #PlacesToolbar menupopup > menu { padding: 0px !important; }
 #PersonalToolbar {
     position: relative !important;
-    transition: ease 100ms !important;
     min-height: 0em !important;
     max-height: 0em !important;
+    z-index: 1;
+        position: absolute;
  }
   #navigator-toolbox:hover > #PersonalToolbar {
-    transition: ease 200ms !important;
     transition-delay: 500ms !important;
     min-height: 28px !important;
     max-height: 3em !important;
     z-index: 1;
+    position: absolute;
+
  }
+*/
+/*flexible spring*/
+toolbar toolbarspring{
+  box-flex: 40 !important;
+  min-width: 16px !important;
+  max-width: 96px !important;
+}
+
+
 
 /*TAB BAR*/
 /*
@@ -132,16 +154,9 @@ toolbarbutton #alltabs-button, [id="alltabs-button"] { display: none !important;
 /*
 .tabbrowser-tab .tab-close-button{ display:none; }
 .tabbrowser-tab[selected]:not([pinned]):hover .tab-close-button{ display: flex !important; }
+*/
 
-/* show favicon for tabs without favicons */
-/*
-.tabbrowser-tab:not([pinned]) .tab-icon-image:not([src]) {
-  display: inline !important;
-}
-.tabbrowser-tab:not([pinned])[busy] .tab-icon-image {
-  display: none !important;
-}
-
+.tab-icon-image[pending] { opacity: 0.33 !important; }
 /*CONTAINER*/
 /*
 .tabbrowser-tab[selected] > .tab-stack > .tab-background > .tab-context-line {
@@ -153,7 +168,6 @@ toolbarbutton #alltabs-button, [id="alltabs-button"] { display: none !important;
   margin-inline: 0px !important; }
 
 /*EXTENSION v111*/
-/*
 #unified-extensions-view{--uei-icon-size: 16px; }
 .unified-extensions-item-menu-button.subviewbutton{padding: 2px !important;}
 #unified-extensions-view > vbox > vbox > .unified-extensions-item{padding-block: 0px !important; }
